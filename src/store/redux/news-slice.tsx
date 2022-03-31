@@ -9,7 +9,9 @@ const newsSlice = createSlice({
     initialState: initialNewsState,
     reducers:{
         getNewsArticles: (state) =>{
-            
+
         }
     }
 })
+
+export const getNewsArticles = newsSlice.actions;
