@@ -12,8 +12,8 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
         <Image source={{ uri: article.urlToImage }} style={styles.image} />
         </View>
         <View style={styles.infoContainer}>
-            <Text style={styles.titleText}numberOfLines={2}>{article.title}</Text>
-            <Text style={styles.descriptionText} numberOfLines={3}>{article.description}</Text>
+            <Text style={styles.titleText}numberOfLines={1}>{article.title}</Text>
+            <Text style={styles.descriptionText} numberOfLines={4}>{article.description}</Text>
         </View>
     </View>
 }
