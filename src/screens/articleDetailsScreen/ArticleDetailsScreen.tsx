@@ -8,4 +8,4 @@ export const ArticleDetailsScreen = ()=>{
     </View>
 }
 
-export const ARTICLE_DETAILS_SCREEN = "ARTICLE_DETAILS_SCREEN";
+export const ARTICLE_DETAILS_SCREEN = "Article Details Screen";

@@ -15,4 +15,4 @@ export const HomeScreen: React.FC = () => {
     </View>
 }
 
-export const HOME_SCREEN_TAG = "HOME_SCREEN_TAG";
+export const HOME_SCREEN_TAG = "Home Screen";
