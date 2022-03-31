@@ -8,14 +8,22 @@ import { Article } from '../model/article'
 export const thunkGetArticles =
     (): ThunkAction<void, RootState, unknown, AnyAction> =>
         async dispatch => {
-            const getData = async () => {
+            const getData = async (): Promise<Article[]> => {
                 const response = await fetchArticles();
-                if (validateStatus(response.status)) {
+                if (!validateStatus(response.status)) {
+                    throw new Error('Sorry, Could not fetch articles data!');
+                }
+                else {
                     let articles: Article[] = response.data.articles;
-                    dispatch(
-                        getNewsArticles(articles)
-                    )
+                    return articles;
                 }
             }
-            getData();
+            try{
+            let articles : Article[]= await getData();
+            dispatch(getNewsArticles(articles));
+            }
+            catch(err){
+                
+            }
+            
         }
