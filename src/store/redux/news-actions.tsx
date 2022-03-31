@@ -11,7 +11,7 @@ export const thunkGetArticles =
             const getData = async () => {
                 const response = await fetchArticles();
                 if (validateStatus(response.status)) {
-                    let articles: Article[] = response.data;
+                    let articles: Article[] = response.data.articles;
                     dispatch(
                         getNewsArticles(articles)
                     )
