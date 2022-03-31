@@ -5,3 +5,5 @@ export const store = configureStore({
         sliceReducer
     }
 })
+
+export type RootState = ReturnType<typeof store.getState>
