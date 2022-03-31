@@ -8,6 +8,8 @@ const newsSlice = createSlice({
     name: 'news',
     initialState: initialNewsState,
     reducers:{
-
+        getNewsArticles: (state) =>{
+            
+        }
     }
 })
