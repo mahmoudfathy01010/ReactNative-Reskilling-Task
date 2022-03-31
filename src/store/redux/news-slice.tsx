@@ -11,7 +11,8 @@ const newsSlice = createSlice({
     initialState: initialNewsState,
     reducers: {
         getNewsArticles: (state, action) => {
-
+        },
+        setError: (state, action) => {
         }
     }
 })
