@@ -15,6 +15,6 @@ const newsSlice = createSlice({
     }
 })
 
-export const getNewsArticles = newsSlice.actions;
+export const {getNewsArticles} = newsSlice.actions;
 export const articles = (state: RootState) => state.sliceReducer.list 
 export const sliceReducer = newsSlice.reducer;
