@@ -15,4 +15,4 @@ const newsSlice = createSlice({
 })
 
 export const getNewsArticles = newsSlice.actions;
-export default newsSlice.reducer;
+export const sliceReducer = newsSlice.reducer;
