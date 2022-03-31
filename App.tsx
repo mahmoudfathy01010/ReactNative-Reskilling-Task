@@ -4,7 +4,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { Provider } from 'react-redux';
-import { HomeScreen, HOME_SCREEN_TAG } from './src/screens/HomeScreen';
+import { HomeScreen, HOME_SCREEN_TAG } from './src/screens/homeScreen/HomeScreen';
 import { store } from './src/store/redux/store';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
