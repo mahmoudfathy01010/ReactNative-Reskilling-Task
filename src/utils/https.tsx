@@ -7,6 +7,6 @@ export const fetchArticles = async () => {
     return await axios.get(BASE_URL + topHeadLinesApi, { params: { country: "us", category: "business", apiKey: API_KEY } })
 }
 
-const validateStatus = (status: number) => {
+export const validateStatus = (status: number) => {
     return status >= 200 && status < 300;
 }
