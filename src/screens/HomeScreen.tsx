@@ -5,7 +5,7 @@ import { thunkGetArticles } from '../store/redux/news-actions';
 export const HomeScreen: React.FC = () => {
     const dispatch = useAppDispatch();
     useEffect(() => {
-        dispatch(thunkGetArticles);
+        dispatch(thunkGetArticles());
     }, [dispatch])
     return <View>
         <Text>
