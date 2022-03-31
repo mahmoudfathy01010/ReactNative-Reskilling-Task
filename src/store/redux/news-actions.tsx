@@ -23,7 +23,7 @@ export const thunkGetArticles =
                 dispatch(getNewsArticles(articles));
             }
             catch (err) {
-                setError('Sorry, Could not fetch articles data!');
+                dispatch(setError('Sorry, Could not fetch articles data!'));
             }
 
         }
