@@ -1,7 +1,7 @@
 import { FlatList, Text, View } from "react-native"
 import React from "react"
 import { Article } from "../../store/model/article"
-import { ArticleItem } from "./ArticleItem"
+import { ArticleItem } from "./articleItem/ArticleItem"
 interface Props {
     articles: Article[]
 }
