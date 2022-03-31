@@ -15,15 +15,12 @@ import {
   Text,
   View,
 } from 'react-native';
+import { HomeScreen } from './src/screens/HomeScreen';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <View>
-        <Text>
-          Hello World
-        </Text>
-      </View>
+      <HomeScreen></HomeScreen>
     </SafeAreaView>
   );
 };
