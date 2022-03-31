@@ -14,3 +14,5 @@ export const HomeScreen: React.FC = () => {
         {articles.length != 0 && <HomeList articles={articles}></HomeList>}
     </View>
 }
+
+export const HOME_SCREEN_TAG = "HOME_SCREEN_TAG";

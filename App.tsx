@@ -4,7 +4,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { Provider } from 'react-redux';
-import { HomeScreen } from './src/screens/HomeScreen';
+import { HomeScreen, HOME_SCREEN_TAG } from './src/screens/HomeScreen';
 import { store } from './src/store/redux/store';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -16,7 +16,7 @@ const App = () => {
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name='homeScreen' component={HomeScreen}/>
+            <Stack.Screen name={HOME_SCREEN_TAG} component={HomeScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
