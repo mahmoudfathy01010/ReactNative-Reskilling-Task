@@ -8,7 +8,7 @@ export const HomeList: React.FC<Props> = ({articles}) => {
 
     return <View>
         <FlatList data={articles}
-            renderItem={({ item, index }) => (<Text>
+            renderItem={({ item }) => (<Text>
                 {item.title}
             </Text>)}
             keyExtractor={item => item.title} ></FlatList>
