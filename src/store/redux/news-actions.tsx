@@ -17,4 +17,5 @@ export const thunkGetArticles =
                     )
                 }
             }
+            getData();
         }
