@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Article } from "../model/article";
 interface NewsState{
-    list:[]
+    list:Article[]
 }
 const initialNewsState : NewsState = {list: []}
 const newsSlice = createSlice({
