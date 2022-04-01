@@ -1,3 +1,9 @@
 {
-    "lang": "Deutch"
+    "description": "Beschreibung",
+    "home": "Zuhause",
+    "settings": "Einstellungen",
+    "by": "durch",
+    "date": "Datum",
+    "content": "Inhalt",
+    "setDarkMode":"Dunkelmodus einstellen"
 }

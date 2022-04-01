@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import en from '../../assets/lang/en.json'
+import de from '../../assets/lang/de.json'
+
 
 const initialLangState = {
-    langCode: 'en',
-    values: {...en}
+    langCode: 'de',
+    values: {...de}
 }
 const langSlice = createSlice({
     name: 'lang',

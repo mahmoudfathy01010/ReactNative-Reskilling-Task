@@ -1,3 +1,9 @@
 {
-    "lang": "English"
+    "description": "Description",
+    "home": "Home",
+    "settings": "Settings",
+    "by": "By",
+    "date": "Date",
+    "content": "Content",
+    "setDarkMode":"Set dark mode"
 }
