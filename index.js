@@ -7,7 +7,10 @@ import { Provider } from 'react-redux';
 import App from './App';
 import {name as appName} from './app.json';
 import { store } from './src/store/redux/store';
-
-AppRegistry.registerComponent(appName, () => <Provider store={store}>
-    <App></App>
-</Provider>);
+import React from 'react';
+const Root = () => (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
+AppRegistry.registerComponent(appName, () => Root);
