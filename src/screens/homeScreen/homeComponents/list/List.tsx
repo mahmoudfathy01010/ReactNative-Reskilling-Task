@@ -3,17 +3,26 @@ import React, { useCallback, useState } from "react"
 import { Article } from "../../../../store/model/article"
 import { ArticleItem } from "../articleItem/ArticleItem"
 import { styles } from "./style"
+import { useAppDispatch } from "../../../../hooks"
+import { thunkGetArticles } from "../../../../store/redux/news-actions"
 interface Props {
-    articles: Article[]
+    articles: Article[],
+    searchText: string
 }
-export const HomeList: React.FC<Props> = ({ articles }) => {
+export const HomeList: React.FC<Props> = ({ articles,searchText }) => {
     const [refreshing, setRefreshing] = useState(false);
+    const dispatch = useAppDispatch();
+
     const onRefresh = useCallback(() => {
+        dispatch(thunkGetArticles(searchText, true));
         setRefreshing(true);
-        setTimeout(() => {
+        const indentifier = setTimeout(() => {
             setRefreshing(false);
         }, 2000);
-    }, []);
+        return()=>{
+            clearTimeout(indentifier)
+        }
+    }, [searchText]);
 
     return <View style={styles.mainContainer}>
         <FlatList

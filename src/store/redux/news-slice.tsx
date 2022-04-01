@@ -4,7 +4,7 @@ import { RootState } from "./store";
 interface NewsState {
     list: Article[],
     errorMsg: string,
-    isLoading: boolean
+    isLoading: boolean,
 }
 const initialNewsState: NewsState = { list: [], errorMsg: "", isLoading: false }
 const newsSlice = createSlice({

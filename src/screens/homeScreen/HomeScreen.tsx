@@ -51,7 +51,7 @@ export const HomeScreen: React.FC = ({ }) => {
         </View>
     }
     else if (articles.length != 0) {
-        currentDisplay = <HomeList articles={articles}></HomeList>
+        currentDisplay = <HomeList searchText={searchText} articles={articles}></HomeList>
     }
 
     else {

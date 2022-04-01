@@ -6,10 +6,12 @@ import { getNewsArticles, setError, setIsLoading } from './news-slice'
 import { Article } from '../model/article'
 
 export const thunkGetArticles =
-    (query: string): ThunkAction<void, RootState, unknown, AnyAction> =>
+    (query: string, isRefreshing=false): ThunkAction<void, RootState, unknown, AnyAction> =>
         async dispatch => {
             const getData = async (): Promise<Article[]> => {
+                if(!isRefreshing){
                 dispatch(setIsLoading(true));
+                }
                 const response = await fetchArticles(query);
                 if (!validateStatus(response.status)) {
                     throw new Error('Sorry, Could not fetch articles data!');
