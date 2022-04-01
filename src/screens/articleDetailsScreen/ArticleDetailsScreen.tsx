@@ -1,4 +1,5 @@
 import { Text, View } from "react-native";
+import React from "react"
 
 export const ArticleDetailsScreen = ()=>{
     return <View>
@@ -8,4 +9,4 @@ export const ArticleDetailsScreen = ()=>{
     </View>
 }
 
-export const ARTICLE_DETAILS_SCREEN = "Article Details Screen";
+export const ARTICLE_DETAILS_SCREEN = "ArticleDetails";
