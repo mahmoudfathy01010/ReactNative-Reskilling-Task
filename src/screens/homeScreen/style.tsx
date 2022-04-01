@@ -25,9 +25,4 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    loadingText: {
-        color: colors.white,
-        fontSize: 20
-    },
-
 })
