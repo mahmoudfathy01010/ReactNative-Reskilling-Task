@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ArticleDetailsScreen, ARTICLE_DETAILS_SCREEN } from './src/screens/articleDetailsScreen/ArticleDetailsScreen';
 import { colors } from './src/utils/theme';
+import { useAppSelector } from './src/hooks';
 
 export type RootStackParamList = {
   Home:any
@@ -15,20 +16,10 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const MyTheme = {
-  dark: false,
-  colors: {
-    primary: colors.white,
-    background: colors.primaryColor,
-    card: colors.accentColor,
-    text: colors.white70,
-    border: 'rgb(199, 199, 204)',
-    notification: colors.secondaryColor,
-  },
-};
 const App = () => {
+  const theme = useAppSelector((state) => state.themeReducer.theme);
   return (
-      <NavigationContainer theme={MyTheme}>
+      <NavigationContainer theme={theme}>
         <Stack.Navigator>
           <Stack.Screen name={HOME_SCREEN_TAG} component={HomeScreen} />
           <Stack.Screen name={ARTICLE_DETAILS_SCREEN} component={ArticleDetailsScreen} />
