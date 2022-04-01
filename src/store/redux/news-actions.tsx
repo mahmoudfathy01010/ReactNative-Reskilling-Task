@@ -2,13 +2,14 @@ import { AnyAction } from 'redux'
 import { RootState } from './store'
 import { ThunkAction } from 'redux-thunk'
 import { fetchArticles, validateStatus } from '../../utils/https'
-import { getNewsArticles, setError } from './news-slice'
+import { getNewsArticles, setError, setIsLoading } from './news-slice'
 import { Article } from '../model/article'
 
 export const thunkGetArticles =
     (): ThunkAction<void, RootState, unknown, AnyAction> =>
         async dispatch => {
             const getData = async (): Promise<Article[]> => {
+                dispatch(setIsLoading(true));
                 const response = await fetchArticles();
                 if (!validateStatus(response.status)) {
                     throw new Error('Sorry, Could not fetch articles data!');
@@ -21,9 +22,11 @@ export const thunkGetArticles =
             try {
                 let articles: Article[] = await getData();
                 dispatch(getNewsArticles(articles));
+                dispatch(setIsLoading(false));
             }
             catch (err) {
                 dispatch(setError('Sorry, Could not fetch articles data!'));
+                dispatch(setIsLoading(false));
             }
 
         }
