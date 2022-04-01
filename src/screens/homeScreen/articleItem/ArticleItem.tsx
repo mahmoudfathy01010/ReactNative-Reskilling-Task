@@ -19,14 +19,22 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
         dispatch(setArticle(article));
         navigation.navigate('ArticleDetails');
     }
+    let articleTitle = article.title;
+    let articleDesciption = article.description;
+    if(article.title === "" || article.title === null){
+        articleTitle = "Soryy, There is no title Data"
+    }
+    if(article.description === "" || article.description === null){
+        articleDesciption = "Sorry, There is no Description Data"
+    }
     return <Pressable onPress={onItemPress}>
         <View style={styles.mainContainer}>
             <View style={styles.imageContainer}>
                 <ImagWithPlaceHolder imageUrl={article.urlToImage} title={article.title}></ImagWithPlaceHolder>
             </View>
             <View style={styles.infoContainer}>
-                <Text style={styles.titleText} numberOfLines={1}>{article.title}</Text>
-                <Text style={styles.descriptionText} numberOfLines={4}>{article.description}</Text>
+                <Text style={styles.titleText} numberOfLines={1}>{articleTitle}</Text>
+                <Text style={styles.descriptionText} numberOfLines={4}>{articleDesciption}</Text>
             </View>
         </View>
     </Pressable>
