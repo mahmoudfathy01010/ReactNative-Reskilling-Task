@@ -54,7 +54,11 @@ export const styles = StyleSheet.create({
         color: colors.secondaryColor
     },
     metaContainer:{
-        flexDirection: 'row',
-        justifyContent:'space-between'
-    }
+    },
+
+    dateText: {
+        marginTop: 6,
+        fontSize: 12,
+        color: colors.white70
+    },
 })
