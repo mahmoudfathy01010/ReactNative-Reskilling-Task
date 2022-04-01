@@ -1,13 +1,14 @@
 import { Text, View } from "react-native";
 import React from "react"
 import { useAppSelector } from "../../hooks";
+import { styles } from "../style";
 
 export const ArticleDetailsScreen = ()=>{
     const article = useAppSelector((state) => state.articleReducer.article);
 
-    return <View>
+    return <View style = {styles.mainContainer}>
         <Text>
-            {article.description}
+            {article.content}
         </Text>
     </View>
 }
