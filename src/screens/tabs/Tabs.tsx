@@ -6,6 +6,7 @@ import {StyleSheet, View} from "react-native"
 import { colors } from "../../utils/theme";
 import { useAppSelector } from "../../hooks";
 import React from "react";
+import { HomeStackScreen } from "./HomeScreenStack";
 
 const Tab = createBottomTabNavigator();
 export const Tabs = () => {
@@ -30,9 +31,14 @@ export const Tabs = () => {
             },
             tabBarActiveTintColor: 'tomato',
             tabBarInactiveTintColor: 'gray',
+            tabBarStyle:{
+              backgroundColor: theme.primary
+            }
           })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen options={{
+              headerShown: false,
+            }} name="HomeScreenStack" component={HomeStackScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
     </NavigationContainer>
