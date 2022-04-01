@@ -6,12 +6,17 @@ import { ImagWithPlaceHolder } from "../../../components/placeHolderImage/PlaceH
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamList } from "../../../../App"
+import { useAppDispatch } from "../../../hooks"
+import { setArticle } from "../../../store/redux/article-slice"
 interface Props {
     article: Article
 }
 export const ArticleItem: React.FC<Props> = ({ article }) => {
+    const dispatch = useAppDispatch();
+
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const onItemPress =()=>{
+        dispatch(setArticle(article));
         navigation.navigate('ArticleDetails');
     }
     return <Pressable onPress={onItemPress}>

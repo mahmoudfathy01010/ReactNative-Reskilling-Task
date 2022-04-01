@@ -1,10 +1,13 @@
 import { Text, View } from "react-native";
 import React from "react"
+import { useAppSelector } from "../../hooks";
 
 export const ArticleDetailsScreen = ()=>{
+    const article = useAppSelector((state) => state.articleReducer.article);
+
     return <View>
         <Text>
-            Hello Details Screen
+            {article.description}
         </Text>
     </View>
 }
