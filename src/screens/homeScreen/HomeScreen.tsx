@@ -5,7 +5,7 @@ import { thunkGetArticles } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/list/List';
 import { styles } from './style';
 import { colors } from '../../utils/theme';
-
+let isInitialized = false;
 export const HomeScreen: React.FC = ({ }) => {
 
     const dispatch = useAppDispatch();
@@ -27,12 +27,15 @@ export const HomeScreen: React.FC = ({ }) => {
     }, [getData])
 
     useEffect(() => {
-        const identifier = setTimeout(() => {
-            getData(searchText);
-        }, 1000);
-        return () => {
-            clearTimeout(identifier);
+        if (isInitialized) {
+            const identifier = setTimeout(() => {
+                getData(searchText);
+            }, 1000);
+            return () => {
+                clearTimeout(identifier);
+            }
         }
+        isInitialized = true
     }, [searchText])
 
     let currentDisplay;
