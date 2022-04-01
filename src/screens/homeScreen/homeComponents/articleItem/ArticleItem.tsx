@@ -1,13 +1,13 @@
 import { Image, Pressable, Text, View } from "react-native"
 import React from "react"
-import { Article } from "../../../store/model/article"
+import { Article } from "../../../../store/model/article"
 import { styles } from "./style"
-import { ImagWithPlaceHolder } from "../../../components/placeHolderImage/PlaceHolderImage"
+import { ImagWithPlaceHolder } from "../../../../components/placeHolderImage/PlaceHolderImage"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import { RootStackParamList } from "../../../../App"
-import { useAppDispatch } from "../../../hooks"
-import { setArticle } from "../../../store/redux/article-slice"
+import { RootStackParamList } from "../../../../../App"
+import { useAppDispatch } from "../../../../hooks"
+import { setArticle } from "../../../../store/redux/article-slice"
 interface Props {
     article: Article
 }

@@ -2,8 +2,8 @@ import React, { useCallback, useEffect } from 'react';
 import { View, Text, Button } from 'react-native'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { thunkGetArticles } from '../../store/redux/news-actions';
-import { HomeList } from './homeComponents/List';
-import { styles } from '../style';
+import { HomeList } from './homeComponents/list/List';
+import { styles } from './style';
 import { colors } from '../../utils/theme';
 
 export const HomeScreen: React.FC = ({ }) => {
@@ -38,7 +38,7 @@ export const HomeScreen: React.FC = ({ }) => {
     }
 
     else {
-        currentDisplay = <Text>Sorry there is no Data currently</Text>
+        currentDisplay = <View style={styles.loadingContainer}><Text>Sorry there is no Data currently</Text></View>
     }
 
 
