@@ -9,13 +9,25 @@ export const HomeScreen: React.FC = ({}) => {
 
     const dispatch = useAppDispatch();
     const articles = useAppSelector((state) => state.sliceReducer.list);
+    const errorMsg = useAppSelector((state) => state.sliceReducer.errorMsg);
 
     useEffect(() => {
         dispatch(thunkGetArticles());
     }, [dispatch])
+
+    let currentDisplay;
+    if(errorMsg != ''){
+        currentDisplay = <Text>{errorMsg}</Text>
+    }
+    else if(articles.length!=0){
+        currentDisplay = <HomeList articles={articles}></HomeList>
+    }
+    else{
+        currentDisplay = <Text>Loading...</Text>
+    }
     
     return <View style ={styles.mainContainer} >
-        {articles.length != 0 && <HomeList articles={articles}></HomeList>}
+        {currentDisplay}
     </View>
 }
 
