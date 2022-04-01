@@ -1,16 +1,14 @@
 import { ScrollView, Text, View } from "react-native";
 import React from "react"
-import { useAppSelector } from "../../hooks";
+import { useAppSelector, useAppTheme } from "../../hooks";
 import { styles } from "../articleDetailsScreen/style";
 import { ImagWithPlaceHolder } from "../../components/placeHolderImage/PlaceHolderImage";
 import   Moment  from "moment";
-import { useTheme } from "@react-navigation/native";
 
 export const ArticleDetailsScreen = () => {
+    const theme = useAppTheme();
     const article = useAppSelector((state) => state.articleReducer.article);
     Moment.locale('en');
-    const{colors} = useTheme();
-
     let articleTitle = article.title;
     let articleDesciption = article.description;
     let articleContent = article.description;
@@ -31,18 +29,18 @@ export const ArticleDetailsScreen = () => {
             <ImagWithPlaceHolder imageUrl={article.urlToImage} style={styles.image}></ImagWithPlaceHolder>
         </View>
         <View style={styles.infoContainer}>
-            <Text style={[styles.titleText,{color:colors.primary}]}>{articleTitle}</Text>
+            <Text style={[styles.titleText,{color:theme.textPrimart}]}>{articleTitle}</Text>
             <View style={styles.metaContainer}>
-            <Text style={[styles.autherText,{color:colors.notification}]}>{"By: "+article.source.name}</Text>
-            <Text style={[styles.dateText,{color:colors.text}]}>{"Date: "+ Moment(article.publishedAt).format('MMMM Do YYYY') }</Text>
+            <Text style={[styles.autherText,{color:theme.accent}]}>{"By: "+article.source.name}</Text>
+            <Text style={[styles.dateText,{color:theme.textSecondary}]}>{"Date: "+ Moment(article.publishedAt).format('MMMM Do YYYY') }</Text>
             </View>
             <View style={styles.descriptionContainer}>
-                <Text style={[styles.headerStyle,{color:colors.primary}]}>Descripion:</Text>
-                <Text style={[styles.descriptionText,{color:colors.text}]}>{articleDesciption}</Text>
+                <Text style={[styles.headerStyle,{color:theme.textSecondary}]}>Descripion:</Text>
+                <Text style={[styles.descriptionText,{color:theme.textSecondary}]}>{articleDesciption}</Text>
             </View>
             <View style={styles.contentContainer}>
-                <Text style={[styles.headerStyle,{color:colors.primary}]}>Content:</Text>
-                <Text style={[styles.contentText,{color:colors.text}]}>{articleContent}</Text>
+                <Text style={[styles.headerStyle,{color:theme.textPrimart}]}>Content:</Text>
+                <Text style={[styles.contentText,{color:theme.textSecondary}]}>{articleContent}</Text>
             </View>
         </View>
         </ScrollView>

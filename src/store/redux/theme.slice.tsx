@@ -4,15 +4,11 @@ import { RootState } from "./store";
 
 const initialThemeeState = {
     theme: {
-        dark: false,
-        colors: {
-            primary: colors.primaryColor,
-            background: colors.white,
-            card: colors.white70,
-            text: colors.accentColor,
-            border: 'rgb(199, 199, 204)',
-            notification: colors.secondaryColor,
-        },
+        primary: colors.primaryColor,
+        secondary: colors.secondaryColor,
+        textPrimart: colors.white,
+        textSecondary: colors.white70,
+        accent: colors.accentColor
     }
 }
 const themeSlice = createSlice({
@@ -20,30 +16,22 @@ const themeSlice = createSlice({
     initialState: initialThemeeState,
     reducers: {
         setTheme: (state, action) => {
-            if(action.payload === 'dark'){
+            if (action.payload === 'dark') {
                 state.theme = {
-                    dark: true,
-                    colors: {
-                        primary: colors.white,
-                        background: colors.primaryColor,
-                        card: colors.accentColor,
-                        text: colors.white70,
-                        border: 'rgb(199, 199, 204)',
-                        notification: colors.secondaryColor,
-                    },
+                    primary: colors.white,
+                    secondary: colors.white70,
+                    textPrimart: colors.primaryColor,
+                    textSecondary: colors.secondaryColor,
+                    accent: colors.accentColor
                 }
             }
-            else{
+            else {
                 state.theme = {
-                    dark: false,
-                    colors: {
-                        primary: colors.primaryColor,
-                        background: colors.white,
-                        card: colors.white70,
-                        text: colors.accentColor,
-                        border: 'rgb(199, 199, 204)',
-                        notification: colors.secondaryColor,
-                    },
+                    primary: colors.primaryColor,
+                    secondary: colors.secondaryColor,
+                    textPrimart: colors.white,
+                    textSecondary: colors.white70,
+                    accent: colors.accentColor
                 }
             }
         }

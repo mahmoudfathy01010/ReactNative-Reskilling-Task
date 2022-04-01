@@ -1,13 +1,12 @@
-import { useTheme } from '@react-navigation/native';
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, Button, ActivityIndicator, TextInput } from 'react-native'
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector, useAppTheme } from '../../hooks';
 import { thunkGetArticles } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/list/List';
 import { styles } from './style';
 let isInitialized = false;
 export const HomeScreen: React.FC = ({ }) => {
-    const{colors} = useTheme();
+    const theme = useAppTheme();
     const dispatch = useAppDispatch();
     const articles = useAppSelector((state) => state.sliceReducer.list);
     const errorMsg = useAppSelector((state) => state.sliceReducer.errorMsg);
@@ -59,11 +58,11 @@ export const HomeScreen: React.FC = ({ }) => {
     }
 
 
-    return <View style={styles.mainContainer} >
+    return <View style={[styles.mainContainer, {backgroundColor: theme.primary}]} >
         <TextInput
             value={searchText}
             onChangeText={onSearchTextChange}
-            style={[styles.searchInput,{color: colors.primary, borderColor: colors.text}]} selectionColor={colors.text}></TextInput>
+            style={[styles.searchInput,{color: theme.textPrimart, borderColor: theme.textSecondary}]} selectionColor={theme.textSecondary}></TextInput>
         {currentDisplay}
     </View>
 }

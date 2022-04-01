@@ -6,16 +6,15 @@ import { ImagWithPlaceHolder } from "../../../../components/placeHolderImage/Pla
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamList } from "../../../../../App"
-import { useAppDispatch } from "../../../../hooks"
+import { useAppDispatch, useAppTheme } from "../../../../hooks"
 import { setArticle } from "../../../../store/redux/article-slice"
-import { useTheme } from '@react-navigation/native';
 
 interface Props {
     article: Article
 }
 export const ArticleItem: React.FC<Props> = ({ article }) => {
     const dispatch = useAppDispatch();
-    const{colors} = useTheme();
+    const theme = useAppTheme();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const onItemPress =()=>{
         dispatch(setArticle(article));
@@ -35,8 +34,8 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
                 <ImagWithPlaceHolder imageUrl={article.urlToImage} style={styles.image}></ImagWithPlaceHolder>
             </View>
             <View style={styles.infoContainer}>
-                <Text style={[styles.titleText,{color:colors.text}]} numberOfLines={1}>{articleTitle}</Text>
-                <Text style={[styles.descriptionText,{color:colors.primary}]} numberOfLines={4}>{articleDesciption}</Text>
+                <Text style={[styles.titleText,{color:theme.textSecondary}]} numberOfLines={1}>{articleTitle}</Text>
+                <Text style={[styles.descriptionText,{color:theme.textPrimart}]} numberOfLines={4}>{articleDesciption}</Text>
             </View>
         </View>
     </Pressable>

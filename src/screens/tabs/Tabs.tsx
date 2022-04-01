@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 export const Tabs = () => {
     const theme = useAppSelector((state) => state.themeReducer.theme);
 
-    return <NavigationContainer theme={theme}>
+    return <NavigationContainer>
         <Tab.Navigator
         screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {

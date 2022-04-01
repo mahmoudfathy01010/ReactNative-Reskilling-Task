@@ -1,12 +1,11 @@
 import { Text, View, Switch } from "react-native"
 import React, { useState } from "react"
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppTheme } from "../../hooks";
 import { setTheme } from "../../store/redux/theme.slice";
-import { useTheme } from "@react-navigation/native";
 import { styles } from "./style";
 
 export const SettingsScreen = () => {
-    const{colors} = useTheme();
+    const theme = useAppTheme();
     const dispatch = useAppDispatch(); 
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => {
@@ -18,13 +17,13 @@ export const SettingsScreen = () => {
         }
         setIsEnabled(previousState => !previousState);
      }
-    return <View style={styles.mainContainer}>
+    return <View style={[styles.mainContainer, {backgroundColor: theme.primary}]}>
         <View style={styles.themeContainer}>
-        <Text style ={[styles.themeText, {color:colors.primary}]}>Set theme:</Text>
+        <Text style ={[styles.themeText, {color:theme.textPrimart}]}>Set theme:</Text>
 
         <Switch
-            trackColor={{ false: colors.text, true: colors.primary }}
-            thumbColor={isEnabled ? colors.notification : colors.background}
+            trackColor={{ false: theme.textSecondary, true: theme.textSecondary }}
+            thumbColor={isEnabled ? theme.textPrimart : theme.textPrimart}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwitch}
             value={isEnabled}
