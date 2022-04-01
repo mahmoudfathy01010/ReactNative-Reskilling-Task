@@ -34,4 +34,12 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
         fontSize: 18,
     },
+    noDataContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    noDataText: {
+        color: colors.white
+    },
 })

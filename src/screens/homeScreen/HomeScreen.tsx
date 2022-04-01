@@ -52,7 +52,7 @@ export const HomeScreen: React.FC = ({ }) => {
     }
 
     else {
-        currentDisplay = <Text>Sorry there is no Data currently</Text>
+        currentDisplay = <View style={styles.noDataContainer}><Text style={styles.noDataText}>Sorry there is no Data currently</Text></View>
     }
 
 
