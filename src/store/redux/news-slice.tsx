@@ -3,9 +3,10 @@ import { Article } from "../model/article";
 import { RootState } from "./store";
 interface NewsState {
     list: Article[],
-    errorMsg: string
+    errorMsg: string,
+    isLoading: boolean
 }
-const initialNewsState: NewsState = { list: [], errorMsg: "" }
+const initialNewsState: NewsState = { list: [], errorMsg: "", isLoading: false }
 const newsSlice = createSlice({
     name: 'news',
     initialState: initialNewsState,
@@ -15,6 +16,9 @@ const newsSlice = createSlice({
         },
         setError: (state, action) => {
             state.errorMsg = action.payload;
+        },
+        setIsLoading: (state, action) => {
+            state.isLoading = action.payload;
         }
     }
 })
@@ -22,4 +26,5 @@ const newsSlice = createSlice({
 export const { getNewsArticles,setError } = newsSlice.actions;
 export const articles = (state: RootState) => state.sliceReducer.list;
 export const error = (state: RootState) => state.sliceReducer.errorMsg;
+export const isLoading = (state: RootState) => state.sliceReducer.isLoading;
 export const sliceReducer = newsSlice.reducer;
