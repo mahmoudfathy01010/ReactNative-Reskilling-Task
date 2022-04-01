@@ -25,12 +25,16 @@ export const HomeStackScreen = () => {
                 name="Home" component={HomeScreen} />
             <HomeStack.Screen options={
                 {
+                    headerBackTitleStyle:{
+                        
+                    },
                     headerStyle: {
                         backgroundColor: theme.primary,
                     },
                     headerTitleStyle: {
                         color: theme.textPrimart
-                    }
+                    },
+                    headerTintColor: theme.textPrimart
                 }
             } name="ArticleDetails" component={ArticleDetailsScreen} />
         </HomeStack.Navigator>
