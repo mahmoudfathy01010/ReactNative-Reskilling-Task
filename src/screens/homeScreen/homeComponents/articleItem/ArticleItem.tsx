@@ -30,7 +30,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
     return <Pressable onPress={onItemPress}>
         <View style={styles.mainContainer}>
             <View style={styles.imageContainer}>
-                <ImagWithPlaceHolder imageUrl={article.urlToImage} title={article.title}></ImagWithPlaceHolder>
+                <ImagWithPlaceHolder imageUrl={article.urlToImage} style={styles.image}></ImagWithPlaceHolder>
             </View>
             <View style={styles.infoContainer}>
                 <Text style={styles.titleText} numberOfLines={1}>{articleTitle}</Text>

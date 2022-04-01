@@ -1,11 +1,10 @@
-import { Image } from "react-native"
+import { Image, ImageStyle, StyleProp } from "react-native"
 import React, { useState } from "react"
-import { styles } from "./style";
 interface Props {
     imageUrl: string,
-    title: string
+    style: StyleProp<ImageStyle> | undefined
 }
-export const ImagWithPlaceHolder: React.FC<Props> = ({ imageUrl, title }) => {
+export const ImagWithPlaceHolder: React.FC<Props> = ({ imageUrl, style }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const onImageLoaded = () => {
         setIsLoaded(true);
@@ -17,6 +16,6 @@ export const ImagWithPlaceHolder: React.FC<Props> = ({ imageUrl, title }) => {
     else {
         sourcImage = require('../../assets/placeholder.jpeg');
     }
-    return <Image source={sourcImage} style={styles.image} onLoad={({ nativeEvent: { source: { width, height, uri } } }) => { onImageLoaded() }}></Image>
+    return <Image source={sourcImage} style={style} onLoad={({ nativeEvent: { source: { width, height, uri } } }) => { onImageLoaded() }}></Image>
 
 }
