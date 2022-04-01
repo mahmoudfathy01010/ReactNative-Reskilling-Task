@@ -22,11 +22,10 @@ export const thunkGetArticles =
             try {
                 let articles: Article[] = await getData();
                 dispatch(getNewsArticles(articles));
-                dispatch(setIsLoading(false));
+
             }
             catch (err) {
                 dispatch(setError('Sorry, Could not fetch articles data!'));
-                dispatch(setIsLoading(false));
             }
 
         }

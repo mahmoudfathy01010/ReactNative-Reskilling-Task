@@ -13,9 +13,12 @@ const newsSlice = createSlice({
     reducers: {
         getNewsArticles: (state, action) => {
             state.list = action.payload;
+            state.errorMsg = "";
+            state.isLoading = false;
         },
         setError: (state, action) => {
             state.errorMsg = action.payload;
+            state.isLoading = false;
         },
         setIsLoading: (state, action) => {
             state.isLoading = action.payload;
