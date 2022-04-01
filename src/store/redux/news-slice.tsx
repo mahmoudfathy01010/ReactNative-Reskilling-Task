@@ -14,6 +14,7 @@ const newsSlice = createSlice({
             state.list = action.payload;
         },
         setError: (state, action) => {
+            state.errorMsg = action.payload;
         }
     }
 })
