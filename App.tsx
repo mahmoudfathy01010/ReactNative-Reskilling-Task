@@ -8,23 +8,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ArticleDetailsScreen, ARTICLE_DETAILS_SCREEN } from './src/screens/articleDetailsScreen/ArticleDetailsScreen';
 import { colors } from './src/utils/theme';
 import { useAppSelector } from './src/hooks';
+import { Tabs } from './src/screens/tabs/Tabs';
 
 export type RootStackParamList = {
   Home:any
   ArticleDetails:any
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+// const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
-  const theme = useAppSelector((state) => state.themeReducer.theme);
   return (
-      <NavigationContainer theme={theme}>
-        <Stack.Navigator>
-          <Stack.Screen name={HOME_SCREEN_TAG} component={HomeScreen} />
-          <Stack.Screen name={ARTICLE_DETAILS_SCREEN} component={ArticleDetailsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Tabs></Tabs>
   );
 };
 
