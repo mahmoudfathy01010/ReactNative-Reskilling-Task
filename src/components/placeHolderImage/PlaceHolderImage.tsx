@@ -16,6 +16,6 @@ export const ImagWithPlaceHolder: React.FC<Props> = ({ imageUrl, style }) => {
     else {
         sourcImage = require('../../assets/placeholder.jpeg');
     }
-    return <Image source={sourcImage} style={style} onLoad={({ nativeEvent: { source: { width, height, uri } } }) => { onImageLoaded() }}></Image>
+    return <Image source={sourcImage} style={style} onLoad={({ nativeEvent: { source: { width, height, uri } } }) => { onImageLoaded() }} resizeMode='cover'></Image>
 
 }
