@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, ActivityIndicator } from 'react-native'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { thunkGetArticles } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/list/List';
@@ -23,7 +23,7 @@ export const HomeScreen: React.FC = ({ }) => {
 
     let currentDisplay;
     if (isLoading) {
-        currentDisplay = <Text>Loading...</Text>
+        currentDisplay = <View style={styles.loadingContainer}><ActivityIndicator color={colors.secondaryColor} size='large'></ActivityIndicator></View>
     }
     else if (errorMsg != '') {
         currentDisplay = <View style={styles.errorContainer}>
@@ -38,7 +38,7 @@ export const HomeScreen: React.FC = ({ }) => {
     }
 
     else {
-        currentDisplay = <View style={styles.loadingContainer}><Text>Sorry there is no Data currently</Text></View>
+        currentDisplay = <Text>Sorry there is no Data currently</Text>
     }
 
 

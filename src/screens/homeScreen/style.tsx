@@ -20,11 +20,14 @@ export const styles = StyleSheet.create({
         width: 100,
         alignItems: "center",
     },
-
     loadingContainer: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    loadingText: {
+        color: colors.white,
+        fontSize: 20
+    },
 
 })
