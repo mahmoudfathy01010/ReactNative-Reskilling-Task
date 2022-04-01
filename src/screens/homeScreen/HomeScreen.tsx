@@ -12,16 +12,19 @@ export const HomeScreen: React.FC = ({ }) => {
     const articles = useAppSelector((state) => state.sliceReducer.list);
     const errorMsg = useAppSelector((state) => state.sliceReducer.errorMsg);
 
-    useEffect(() => {
+    const getData= ()=>{
         dispatch(thunkGetArticles());
-    }, [dispatch])
+    }
+
+    useEffect(() => {
+    }, [getData])
 
     let currentDisplay;
     if (errorMsg != '') {
         currentDisplay = <View style={styles.errorContainer}>
             <Text style={styles.errorText}>{errorMsg}</Text>
             <View style={styles.errorButtonContainer}>
-                <Button color={colors.secondaryColor} title='Try again'></Button>
+                <Button onPress={getData} color={colors.secondaryColor} title='Try again'></Button>
             </View>
         </View>
     }
