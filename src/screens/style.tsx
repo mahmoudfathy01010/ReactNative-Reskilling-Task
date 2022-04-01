@@ -10,6 +10,15 @@ export const styles = StyleSheet.create({
         justifyContent:'center'
     },
     errorContainer:{
-        
+        alignItems:"center",
+    },
+    errorText:{
+        color: colors.white
+    },
+    errorButtonContainer:{
+        marginTop:10,
+        width: 100,
+        alignItems:"center",
     }
+    
 })

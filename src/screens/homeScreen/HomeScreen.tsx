@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { thunkGetArticles } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/List';
 import { styles } from '../style';
+import { colors } from '../../utils/theme';
 
-export const HomeScreen: React.FC = ({}) => {
+export const HomeScreen: React.FC = ({ }) => {
 
     const dispatch = useAppDispatch();
     const articles = useAppSelector((state) => state.sliceReducer.list);
@@ -16,17 +17,22 @@ export const HomeScreen: React.FC = ({}) => {
     }, [dispatch])
 
     let currentDisplay;
-    if(errorMsg != ''){
-        currentDisplay = <Text>{errorMsg}</Text>
+    if (errorMsg != '') {
+        currentDisplay = <View style={styles.errorContainer}>
+            <Text style={styles.errorText}>{errorMsg}</Text>
+            <View style={styles.errorButtonContainer}>
+                <Button color={colors.secondaryColor} title='Try again'></Button>
+            </View>
+        </View>
     }
-    else if(articles.length!=0){
+    else if (articles.length != 0) {
         currentDisplay = <HomeList articles={articles}></HomeList>
     }
-    else{
+    else {
         currentDisplay = <Text>Loading...</Text>
     }
-    
-    return <View style ={styles.mainContainer} >
+
+    return <View style={styles.mainContainer} >
         {currentDisplay}
     </View>
 }
