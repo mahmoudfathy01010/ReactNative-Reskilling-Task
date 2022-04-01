@@ -3,12 +3,16 @@ import React from "react"
 import { Article } from "../../../store/model/article"
 import { styles } from "./style"
 import { ImagWithPlaceHolder } from "../../../components/placeHolderImage/PlaceHolderImage"
+import { useNavigation } from "@react-navigation/native"
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { RootStackParamList } from "../../../../App"
 interface Props {
     article: Article
 }
 export const ArticleItem: React.FC<Props> = ({ article }) => {
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const onItemPress =()=>{
-
+        navigation.navigate('ArticleDetails');
     }
     return <Pressable onPress={onItemPress}>
         <View style={styles.mainContainer}>
