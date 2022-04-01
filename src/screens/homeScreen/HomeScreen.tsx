@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, Button, ActivityIndicator, TextInput } from 'react-native'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { thunkGetArticles } from '../../store/redux/news-actions';
@@ -12,14 +12,28 @@ export const HomeScreen: React.FC = ({ }) => {
     const articles = useAppSelector((state) => state.sliceReducer.list);
     const errorMsg = useAppSelector((state) => state.sliceReducer.errorMsg);
     const isLoading = useAppSelector((state) => state.sliceReducer.isLoading);
+    const [searchText, setSearchText] = useState('');
 
     const getData = useCallback(() => {
         dispatch(thunkGetArticles());
     }, []);
 
+    const onSearchTextChange = (text:string)=>{
+        setSearchText(text);
+    }
+
     useEffect(() => {
         getData();
     }, [getData])
+
+    useEffect(() => {
+        const identifier = setTimeout(() => {
+            console.log(searchText);
+        }, 1000);
+        return ()=>{
+            clearTimeout(identifier);
+        }
+    }, [searchText])
 
     let currentDisplay;
     if (isLoading) {
@@ -43,7 +57,10 @@ export const HomeScreen: React.FC = ({ }) => {
 
 
     return <View style={styles.mainContainer} >
-        <TextInput style={styles.searchInput} selectionColor={colors.white70}></TextInput>
+        <TextInput 
+        value={searchText}
+        onChangeText={onSearchTextChange}
+        style={styles.searchInput} selectionColor={colors.white70}></TextInput>
         {currentDisplay}
     </View>
 }
