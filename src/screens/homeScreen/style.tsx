@@ -25,4 +25,13 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    searchInput: {
+        borderColor: colors.white70,
+        borderWidth: 1,
+        padding: 15,
+        borderRadius: 20,
+        color: colors.white,
+        marginBottom: 20,
+        fontSize: 18,
+    },
 })

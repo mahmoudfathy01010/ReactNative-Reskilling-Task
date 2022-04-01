@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { View, Text, Button, ActivityIndicator } from 'react-native'
+import { View, Text, Button, ActivityIndicator, TextInput } from 'react-native'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { thunkGetArticles } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/list/List';
@@ -43,6 +43,7 @@ export const HomeScreen: React.FC = ({ }) => {
 
 
     return <View style={styles.mainContainer} >
+        <TextInput style={styles.searchInput} selectionColor={colors.white70}></TextInput>
         {currentDisplay}
     </View>
 }
