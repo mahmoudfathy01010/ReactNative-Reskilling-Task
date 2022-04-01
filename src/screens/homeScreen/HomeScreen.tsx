@@ -1,13 +1,13 @@
+import { useTheme } from '@react-navigation/native';
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, Button, ActivityIndicator, TextInput } from 'react-native'
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { thunkGetArticles } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/list/List';
 import { styles } from './style';
-import { colors } from '../../utils/theme';
 let isInitialized = false;
 export const HomeScreen: React.FC = ({ }) => {
-
+    const{colors} = useTheme();
     const dispatch = useAppDispatch();
     const articles = useAppSelector((state) => state.sliceReducer.list);
     const errorMsg = useAppSelector((state) => state.sliceReducer.errorMsg);
@@ -40,13 +40,13 @@ export const HomeScreen: React.FC = ({ }) => {
 
     let currentDisplay;
     if (isLoading) {
-        currentDisplay = <View style={styles.loadingContainer}><ActivityIndicator color={colors.secondaryColor} size='large'></ActivityIndicator></View>
+        currentDisplay = <View style={styles.loadingContainer}><ActivityIndicator  size='large'></ActivityIndicator></View>
     }
     else if (errorMsg != '') {
         currentDisplay = <View style={styles.errorContainer}>
             <Text style={styles.errorText}>{errorMsg}</Text>
             <View style={styles.errorButtonContainer}>
-                <Button onPress={getData} color={colors.secondaryColor} title='Try again'></Button>
+                <Button onPress={getData}  title='Try again'></Button>
             </View>
         </View>
     }
@@ -63,7 +63,7 @@ export const HomeScreen: React.FC = ({ }) => {
         <TextInput
             value={searchText}
             onChangeText={onSearchTextChange}
-            style={styles.searchInput} selectionColor={colors.white70}></TextInput>
+            style={[styles.searchInput,{color: colors.primary, borderColor: colors.text}]} selectionColor={colors.text}></TextInput>
         {currentDisplay}
     </View>
 }

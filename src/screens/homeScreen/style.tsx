@@ -1,10 +1,8 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../utils/theme";
 
 export const styles = StyleSheet.create({
     mainContainer: {
         padding: 20,
-        backgroundColor: colors.primaryColor,
         flex: 1,
     },
     errorContainer: {
@@ -13,7 +11,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     errorText: {
-        color: colors.white
     },
     errorButtonContainer: {
         marginTop: 10,
@@ -26,11 +23,9 @@ export const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     searchInput: {
-        borderColor: colors.white70,
         borderWidth: 1,
         padding: 10,
         borderRadius: 20,
-        color: colors.white,
         marginBottom: 20,
         fontSize: 18,
     },
@@ -40,6 +35,5 @@ export const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     noDataText: {
-        color: colors.white
     },
 })

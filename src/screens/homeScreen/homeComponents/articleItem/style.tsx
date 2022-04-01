@@ -1,12 +1,10 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../../../utils/theme";
 
 export const styles = StyleSheet.create({
     mainContainer: {
         marginBottom: 10,
         flexDirection: 'row',
         padding: 18,
-        backgroundColor: colors.accentColor
     },
     image: {
         width: 100,
@@ -24,11 +22,9 @@ export const styles = StyleSheet.create({
     titleText: {
         fontSize: 20,
         fontWeight: '400',
-        color: colors.white70
     },
     descriptionText: {
         marginTop: 6,
         fontSize: 14,
-        color: colors.white
     }
 })
