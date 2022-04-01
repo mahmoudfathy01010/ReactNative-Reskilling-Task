@@ -22,7 +22,7 @@ export const SettingsScreen = () => {
         <Text style ={[styles.themeText, {color:theme.textPrimart}]}>Set theme:</Text>
 
         <Switch
-            trackColor={{ false: theme.textSecondary, true: theme.textSecondary }}
+            trackColor={{ false: theme.textSecondary, true: theme.secondary }}
             thumbColor={isEnabled ? theme.textPrimart : theme.textPrimart}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwitch}

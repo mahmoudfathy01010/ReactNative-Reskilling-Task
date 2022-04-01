@@ -29,7 +29,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
         articleDesciption = "Sorry, There is no Description Data"
     }
     return <Pressable onPress={onItemPress}>
-        <View style={styles.mainContainer}>
+        <View style={[styles.mainContainer, {backgroundColor: theme.secondary}]}>
             <View style={styles.imageContainer}>
                 <ImagWithPlaceHolder imageUrl={article.urlToImage} style={styles.image}></ImagWithPlaceHolder>
             </View>

@@ -6,24 +6,33 @@ import { useAppTheme } from "../../hooks";
 
 const HomeStack = createNativeStackNavigator();
 
-export const HomeStackScreen =()=> {
+export const HomeStackScreen = () => {
     const theme = useAppTheme();
 
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
-      options={
-          {
-            headerStyle: {
-                backgroundColor: theme.primary,
-              },
-            headerTitleStyle:{
-                color: theme.textPrimart
-            }  
-          }
-      }
-      name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="ArticleDetails" component={ArticleDetailsScreen} />
-    </HomeStack.Navigator>
-  );
+    return (
+        <HomeStack.Navigator>
+            <HomeStack.Screen
+                options={
+                    {
+                        headerStyle: {
+                            backgroundColor: theme.primary,
+                        },
+                        headerTitleStyle: {
+                            color: theme.textPrimart
+                        }
+                    }
+                }
+                name="Home" component={HomeScreen} />
+            <HomeStack.Screen options={
+                {
+                    headerStyle: {
+                        backgroundColor: theme.primary,
+                    },
+                    headerTitleStyle: {
+                        color: theme.textPrimart
+                    }
+                }
+            } name="ArticleDetails" component={ArticleDetailsScreen} />
+        </HomeStack.Navigator>
+    );
 }

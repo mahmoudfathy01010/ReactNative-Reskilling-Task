@@ -23,7 +23,7 @@ export const ArticleDetailsScreen = () => {
         articleContent = "Sorry, There is no Content Data"
     }
 
-    return <View style={styles.mainContainer}>
+    return <View style={[styles.mainContainer, {backgroundColor: theme.primary}]}>
         <ScrollView>
         <View style={styles.imageContainer}>
             <ImagWithPlaceHolder imageUrl={article.urlToImage} style={styles.image}></ImagWithPlaceHolder>
