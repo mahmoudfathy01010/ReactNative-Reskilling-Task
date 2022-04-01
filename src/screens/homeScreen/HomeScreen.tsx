@@ -14,23 +14,23 @@ export const HomeScreen: React.FC = ({ }) => {
     const isLoading = useAppSelector((state) => state.sliceReducer.isLoading);
     const [searchText, setSearchText] = useState('');
 
-    const getData = useCallback(() => {
-        dispatch(thunkGetArticles());
+    const getData = useCallback((searchInput) => {
+        dispatch(thunkGetArticles(searchInput));
     }, []);
 
-    const onSearchTextChange = (text:string)=>{
+    const onSearchTextChange = (text: string) => {
         setSearchText(text);
     }
 
     useEffect(() => {
-        getData();
+        getData('');
     }, [getData])
 
     useEffect(() => {
         const identifier = setTimeout(() => {
-            console.log(searchText);
+            getData(searchText);
         }, 1000);
-        return ()=>{
+        return () => {
             clearTimeout(identifier);
         }
     }, [searchText])
@@ -57,10 +57,10 @@ export const HomeScreen: React.FC = ({ }) => {
 
 
     return <View style={styles.mainContainer} >
-        <TextInput 
-        value={searchText}
-        onChangeText={onSearchTextChange}
-        style={styles.searchInput} selectionColor={colors.white70}></TextInput>
+        <TextInput
+            value={searchText}
+            onChangeText={onSearchTextChange}
+            style={styles.searchInput} selectionColor={colors.white70}></TextInput>
         {currentDisplay}
     </View>
 }
