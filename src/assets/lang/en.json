@@ -5,7 +5,8 @@
     "by": "By",
     "date": "Date",
     "content": "Content",
-    "setDarkMode":"Set dark mode",
+    "setDarkMode": "Set dark mode",
     "details": "Details",
-    "back": "Back"
+    "back": "Back",
+    "news": "News"
 }

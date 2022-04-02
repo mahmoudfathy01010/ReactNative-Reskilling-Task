@@ -18,7 +18,6 @@ export const SettingsScreen = () => {
         }
         else {
             dispatch(setTheme("light"))
-
         }
         setIsEnabled(previousState => !previousState);
     }
@@ -60,9 +59,9 @@ export const SettingsScreen = () => {
             <Text style={[styles.themeText, { color: theme.textPrimart }]}>{languageValues.setDarkMode}</Text>
 
             <Switch
-                trackColor={{ false: theme.textSecondary, true: theme.textSecondary }}
+                trackColor={{ false: theme.textSecondary, true: theme.secondary }}
                 thumbColor={isEnabled ? theme.textPrimart : theme.primary}
-                ios_backgroundColor="#3e3e3e"
+                ios_backgroundColor={isEnabled ? theme.textSecondary : theme.textSecondary}
                 onValueChange={toggleSwitch}
                 value={isEnabled}
             />

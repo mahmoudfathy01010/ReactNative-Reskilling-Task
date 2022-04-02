@@ -3,7 +3,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-
+#import <React/RCTLinkingManager.h>
 #import <React/RCTAppSetupUtils.h>
 
 #if RCT_NEW_ARCH_ENABLED
@@ -22,6 +22,7 @@
   std::shared_ptr<const facebook::react::ReactNativeConfig> _reactNativeConfig;
   facebook::react::ContextContainer::Shared _contextContainer;
 }
+
 @end
 #endif
 
@@ -104,5 +105,12 @@
 }
 
 #endif
+
+- (BOOL)application:(UIApplication *)application
+   openURL:(NSURL *)url
+   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  return [RCTLinkingManager application:application openURL:url options:options];
+}
 
 @end

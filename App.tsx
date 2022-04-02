@@ -1,3 +1,4 @@
+import { NavigatorScreenParams } from '@react-navigation/native';
 import React from 'react';
 import {
   StyleSheet,
@@ -5,13 +6,18 @@ import {
 import { Tabs } from './src/screens/tabs/Tabs';
 
 export type RootStackParamList = {
-  Home: any
-  ArticleDetails: any
+  HomeScreenStack:NavigatorScreenParams<TabsParamList>
+  Settings:any
 };
+
+export type TabsParamList = {
+  Home: undefined
+  ArticleDetails: {id: string}
+}
 
 const App = () => {
   return (
-    <Tabs></Tabs>
+      <Tabs></Tabs>
   );
 };
 

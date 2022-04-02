@@ -5,7 +5,7 @@ import { styles } from "./style"
 import { ImagWithPlaceHolder } from "../../../../components/placeHolderImage/PlaceHolderImage"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import { RootStackParamList } from "../../../../../App"
+import { TabsParamList } from "../../../../../App"
 import { useAppDispatch, useAppLang, useAppTheme } from "../../../../hooks"
 import { setArticle } from "../../../../store/redux/article-slice"
 
@@ -16,10 +16,10 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
     const dispatch = useAppDispatch();
     const theme = useAppTheme();
     const {languageValues} = useAppLang();
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const navigation = useNavigation<NativeStackNavigationProp<TabsParamList>>();
     const onItemPress =()=>{
         dispatch(setArticle(article));
-        navigation.navigate('ArticleDetails');
+        navigation.navigate("ArticleDetails");
     }
     let articleTitle = article.title;
     let articleDesciption = article.description;

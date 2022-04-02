@@ -1,19 +1,44 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { NavigationContainer } from "@react-navigation/native";
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import { SettingsScreen } from "../settings/SettingsScreen";
 import { StyleSheet, View } from "react-native"
 import { colors } from "../../utils/theme";
 import { useAppLang, useAppSelector } from "../../hooks";
 import React from "react";
 import { HomeStackScreen } from "./HomeScreenStack";
+import { RootStackParamList } from "../../../App";
 
 
 
 const Tab = createBottomTabNavigator();
 export const Tabs = () => {
+
+  const config = {
+    screens: {
+      HomeScreenStack: {
+        screens: {
+          ArticleDetails: {
+            path: "details/:id",
+            parse:{
+              id:(id:string)=> ''+id
+            }
+          }
+        },
+      },
+      Settings: {
+        path: "settings"
+      }
+    },
+  };
+  
+  const linking: LinkingOptions<RootStackParamList> = {
+    prefixes: ['https://newsapp.com', 'newsapp://app'],
+    config,
+  };
+
   const theme = useAppSelector((state) => state.themeReducer.theme);
   const { languageValues } = useAppLang();
-  return <NavigationContainer>
+  return <NavigationContainer linking={linking}>
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: () => {
@@ -24,7 +49,7 @@ export const Tabs = () => {
         tabBarStyle: {
           backgroundColor: theme.primary,
         },
-        title: route.name == "HomeScreenStack"? languageValues.home : languageValues.settings
+        title: route.name == "HomeScreenStack"? languageValues.news : languageValues.settings
 
       })}
     >

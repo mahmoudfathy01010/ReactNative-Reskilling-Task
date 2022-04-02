@@ -16,7 +16,7 @@ const themeSlice = createSlice({
     initialState: initialThemeeState,
     reducers: {
         setTheme: (state, action) => {
-            if (action.payload === 'dark') {
+            if (action.payload === 'light') {
                 state.theme = {
                     primary: colors.white,
                     secondary: colors.white70,

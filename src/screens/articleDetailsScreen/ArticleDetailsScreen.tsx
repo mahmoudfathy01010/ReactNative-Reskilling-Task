@@ -4,9 +4,16 @@ import { useAppLang, useAppSelector, useAppTheme } from "../../hooks";
 import { styles } from "../articleDetailsScreen/style";
 import { ImagWithPlaceHolder } from "../../components/placeHolderImage/PlaceHolderImage";
 import   Moment  from "moment";
+import { RouteProp, useRoute } from "@react-navigation/native";
+import { TabsParamList } from "../../../App";
 
-export const ArticleDetailsScreen = () => {
+type HomeRouteProp = RouteProp<TabsParamList, 'ArticleDetails'>
+
+
+export const ArticleDetailsScreen = ({}) => {
+    const route= useRoute<HomeRouteProp>();
     const theme = useAppTheme();
+        console.log("Halaaaaaaaaaaaaaa"+route.params?.id)
     const {languageValues} = useAppLang();
     const article = useAppSelector((state) => state.articleReducer.article);
     Moment.locale('en');
