@@ -16,7 +16,7 @@ export const Tabs = () => {
   return <NavigationContainer>
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: () => {
           return <View style={styles.icon}></View>;
         },
         tabBarActiveTintColor: theme.accent,

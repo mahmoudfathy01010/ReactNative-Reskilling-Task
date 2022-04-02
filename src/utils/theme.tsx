@@ -4,5 +4,4 @@ export const colors = Object.freeze({
     accentColor: '#44bcb7',
     white70: '#b3b3b3',
     white: '#FFFFFF'
-    
 })

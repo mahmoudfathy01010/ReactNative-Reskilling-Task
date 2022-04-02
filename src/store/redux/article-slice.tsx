@@ -16,5 +16,4 @@ const articleSlice = createSlice({
 })
 
 export const { setArticle } = articleSlice.actions;
-export const article = (state: RootState) => state.articleReducer.article;
 export const articleReducer = articleSlice.reducer;

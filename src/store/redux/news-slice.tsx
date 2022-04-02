@@ -27,7 +27,4 @@ const newsSlice = createSlice({
 })
 
 export const { getNewsArticles, setError, setIsLoading } = newsSlice.actions;
-export const articles = (state: RootState) => state.sliceReducer.list;
-export const error = (state: RootState) => state.sliceReducer.errorMsg;
-export const isLoading = (state: RootState) => state.sliceReducer.isLoading;
 export const sliceReducer = newsSlice.reducer;

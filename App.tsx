@@ -5,15 +5,13 @@ import {
 import { Tabs } from './src/screens/tabs/Tabs';
 
 export type RootStackParamList = {
-  Home:any
-  ArticleDetails:any
+  Home: any
+  ArticleDetails: any
 };
-
-// const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
-      <Tabs></Tabs>
+    <Tabs></Tabs>
   );
 };
 
