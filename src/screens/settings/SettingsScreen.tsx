@@ -5,7 +5,7 @@ import { setTheme } from "../../store/redux/theme.slice";
 import { styles } from "./style";
 import ModalSelector from "react-native-modal-selector"
 import { setLang } from "../../store/redux/lang-slice";
-import { languages, LanguagesEnum } from "../../utils/lang";
+import { DEUTSCH, ENGLISH, languages, LANG_KEY } from "../../utils/lang";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DARK, LIGHT, THEME_KEY } from "../../utils/theme";
 
@@ -16,7 +16,6 @@ export const SettingsScreen = () => {
     const dispatch = useAppDispatch();
     let isDark = mode === DARK
     const [isEnabled, setIsEnabled] = useState(isDark);
-
     const toggleSwitch = async () => {
         if (!isEnabled) {
             dispatch(setTheme(DARK))
@@ -82,12 +81,16 @@ export const SettingsScreen = () => {
             selectedKey={languageCode}
             selectedItemTextStyle={modalLanguageStyle.languagesSelectedItemText}
             data={languages}
-            onModalClose={(option) => {
+            onModalClose={async (option) => {
                 if (option.key == 1) {
-                    dispatch(setLang(LanguagesEnum.ENGLISH))
+                    dispatch(setLang(ENGLISH))
+                    await AsyncStorage.setItem(LANG_KEY, ENGLISH)
+
                 }
                 else if (option.key == 2) {
-                    dispatch(setLang(LanguagesEnum.DEUTSCH))
+                    dispatch(setLang(DEUTSCH))
+                    await AsyncStorage.setItem(LANG_KEY, DEUTSCH)
+
                 }
             }}
         >

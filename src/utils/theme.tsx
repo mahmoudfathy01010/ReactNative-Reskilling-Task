@@ -6,6 +6,6 @@ export const colors = Object.freeze({
     white: '#FFFFFF'
 })
 
-export const THEME_KEY = "themeKey"
+export const THEME_KEY = "THEMING_KEY"
 export const LIGHT = "light"
 export const DARK = "dark"

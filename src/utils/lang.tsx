@@ -1,7 +1,7 @@
-export enum LanguagesEnum{
-    ENGLISH,
-    DEUTSCH
-}
+
+export const ENGLISH = "ENGLISH";
+export const DEUTSCH = "DEUTSCH";
+export const LANG_KEY = "LANG"
 
 export const languages = [
     { key: 3, section: true, label: 'Languages' },

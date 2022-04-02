@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import en from '../../assets/lang/en.json'
 import de from '../../assets/lang/de.json'
-import { LanguagesEnum } from "../../utils/lang";
+import { ENGLISH } from "../../utils/lang";
 
 
 const initialLangState = {
@@ -14,7 +14,7 @@ const langSlice = createSlice({
     initialState: initialLangState,
     reducers: {
         setLang: (state, action) => {
-            if(action.payload == LanguagesEnum.ENGLISH){
+            if(action.payload == ENGLISH){
                 state.values = {...en}
                 state.languageCode = 1
             }

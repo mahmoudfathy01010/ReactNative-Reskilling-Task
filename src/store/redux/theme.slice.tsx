@@ -4,10 +4,10 @@ import { RootState } from "./store";
 
 const initialThemeeState = {
     theme: {
-        primary: colors.primaryColor,
-        secondary: colors.secondaryColor,
-        textPrimart: colors.white,
-        textSecondary: colors.white70,
+        primary: colors.white,
+        secondary: colors.white70,
+        textPrimart: colors.primaryColor,
+        textSecondary: colors.secondaryColor,
         accent: colors.accentColor
     },
     mode: LIGHT
