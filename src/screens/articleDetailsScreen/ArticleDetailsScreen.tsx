@@ -47,5 +47,3 @@ export const ArticleDetailsScreen = () => {
         </ScrollView>
     </View>
 }
-
-export const ARTICLE_DETAILS_SCREEN = "ArticleDetails";

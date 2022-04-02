@@ -6,7 +6,7 @@ import { ImagWithPlaceHolder } from "../../../../components/placeHolderImage/Pla
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamList } from "../../../../../App"
-import { useAppDispatch, useAppTheme } from "../../../../hooks"
+import { useAppDispatch, useAppLang, useAppTheme } from "../../../../hooks"
 import { setArticle } from "../../../../store/redux/article-slice"
 
 interface Props {
@@ -15,6 +15,7 @@ interface Props {
 export const ArticleItem: React.FC<Props> = ({ article }) => {
     const dispatch = useAppDispatch();
     const theme = useAppTheme();
+    const {languageValues} = useAppLang();
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const onItemPress =()=>{
         dispatch(setArticle(article));

@@ -9,7 +9,7 @@ import { languages, LanguagesEnum } from "../../utils/lang";
 
 export const SettingsScreen = () => {
     const theme = useAppTheme();
-    const {languageValues, languageCode} = useAppLang();
+    const { languageValues, languageCode } = useAppLang();
     const dispatch = useAppDispatch();
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => {
@@ -21,7 +21,7 @@ export const SettingsScreen = () => {
         }
         setIsEnabled(previousState => !previousState);
     }
-   
+
     return <View style={[styles.mainContainer, { backgroundColor: theme.primary }]}>
         <View style={styles.themeContainer}>
             <Text style={[styles.themeText, { color: theme.textPrimart }]}>{languageValues.setDarkMode}</Text>
@@ -42,23 +42,23 @@ export const SettingsScreen = () => {
             optionTextStyle={styles.languagesItemText}
             sectionTextStyle={styles.languagesHeaderText}
             selectedKey={languageCode}
-            selectedItemTextStyle= {styles.languagesSelectedItemText}
+            selectedItemTextStyle={styles.languagesSelectedItemText}
             data={languages}
-            onModalClose ={(option)=>{
-                if(option.key ==1){
+            onModalClose={(option) => {
+                if (option.key == 1) {
                     dispatch(setLang(LanguagesEnum.ENGLISH))
                 }
-                else if(option.key == 2){
+                else if (option.key == 2) {
                     dispatch(setLang(LanguagesEnum.DEUTSCH))
                 }
             }}
-            >
-                <TextInput
-                        style={styles.selectLangButtonContainer}
-                        editable={false}
-                        placeholder="Select something yummy!"
-                        value={languages.find((lang)=> lang.key == languageCode)?.label} />
-            </ModalSelector>
+        >
+            <TextInput
+                style={styles.selectLangButtonContainer}
+                editable={false}
+                placeholder="Select something yummy!"
+                value={languages.find((lang) => lang.key == languageCode)?.label} />
+        </ModalSelector>
 
     </View>
 }
