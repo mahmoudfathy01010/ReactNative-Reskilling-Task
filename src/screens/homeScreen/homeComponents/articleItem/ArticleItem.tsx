@@ -14,12 +14,12 @@ interface Props {
 }
 export const ArticleItem: React.FC<Props> = ({ article }) => {
     const dispatch = useAppDispatch();
-    const theme = useAppTheme();
+    const {theme} = useAppTheme();
     const {languageValues} = useAppLang();
     const navigation = useNavigation<NativeStackNavigationProp<TabsParamList>>();
     const onItemPress =()=>{
         dispatch(setArticle(article));
-        navigation.navigate("ArticleDetails");
+        navigation.navigate("ArticleDetails",{id:article.title});
     }
     let articleTitle = article.title;
     let articleDesciption = article.description;

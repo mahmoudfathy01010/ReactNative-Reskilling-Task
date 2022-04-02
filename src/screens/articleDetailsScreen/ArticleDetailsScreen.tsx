@@ -12,7 +12,7 @@ type HomeRouteProp = RouteProp<TabsParamList, 'ArticleDetails'>
 
 export const ArticleDetailsScreen = ({}) => {
     const route= useRoute<HomeRouteProp>();
-    const theme = useAppTheme();
+    const {theme} = useAppTheme();
         console.log("Halaaaaaaaaaaaaaa"+route.params?.id)
     const {languageValues} = useAppLang();
     const article = useAppSelector((state) => state.articleReducer.article);

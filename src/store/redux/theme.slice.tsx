@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { colors } from "../../utils/theme";
+import { colors, DARK, LIGHT } from "../../utils/theme";
 import { RootState } from "./store";
 
 const initialThemeeState = {
@@ -9,14 +9,15 @@ const initialThemeeState = {
         textPrimart: colors.white,
         textSecondary: colors.white70,
         accent: colors.accentColor
-    }
+    },
+    mode: LIGHT
 }
 const themeSlice = createSlice({
     name: 'theme',
     initialState: initialThemeeState,
     reducers: {
         setTheme: (state, action) => {
-            if (action.payload === 'light') {
+            if (action.payload === LIGHT) {
                 state.theme = {
                     primary: colors.white,
                     secondary: colors.white70,
@@ -24,6 +25,7 @@ const themeSlice = createSlice({
                     textSecondary: colors.secondaryColor,
                     accent: colors.accentColor
                 }
+                state.mode = LIGHT
             }
             else {
                 state.theme = {
@@ -32,7 +34,8 @@ const themeSlice = createSlice({
                     textPrimart: colors.white,
                     textSecondary: colors.white70,
                     accent: colors.accentColor
-                }
+                },
+                state.mode = DARK
             }
         }
     }

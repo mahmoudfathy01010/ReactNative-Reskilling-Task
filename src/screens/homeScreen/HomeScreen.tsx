@@ -6,7 +6,7 @@ import { HomeList } from './homeComponents/list/List';
 import { styles } from './style';
 let isInitialized = false;
 export const HomeScreen: React.FC = ({ }) => {
-    const theme = useAppTheme();
+    const {theme} = useAppTheme();
     const dispatch = useAppDispatch();
     const articles = useAppSelector((state) => state.sliceReducer.list);
     const errorMsg = useAppSelector((state) => state.sliceReducer.errorMsg);

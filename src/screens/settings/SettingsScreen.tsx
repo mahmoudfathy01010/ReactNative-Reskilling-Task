@@ -6,18 +6,25 @@ import { styles } from "./style";
 import ModalSelector from "react-native-modal-selector"
 import { setLang } from "../../store/redux/lang-slice";
 import { languages, LanguagesEnum } from "../../utils/lang";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { DARK, LIGHT, THEME_KEY } from "../../utils/theme";
+
 
 export const SettingsScreen = () => {
-    const theme = useAppTheme();
+    const {theme,mode} = useAppTheme();
     const { languageValues, languageCode } = useAppLang();
     const dispatch = useAppDispatch();
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => {
-        if (isEnabled) {
-            dispatch(setTheme("dark"))
+    let isDark = mode === DARK
+    const [isEnabled, setIsEnabled] = useState(isDark);
+
+    const toggleSwitch = async () => {
+        if (!isEnabled) {
+            dispatch(setTheme(DARK))
+            await AsyncStorage.setItem(THEME_KEY, DARK)
         }
         else {
-            dispatch(setTheme("light"))
+            dispatch(setTheme(LIGHT))
+            await AsyncStorage.setItem(THEME_KEY, LIGHT)
         }
         setIsEnabled(previousState => !previousState);
     }
@@ -53,7 +60,6 @@ export const SettingsScreen = () => {
             borderRadius: 20
         },
     })
-
     return <View style={[styles.mainContainer, { backgroundColor: theme.primary }]}>
         <View style={styles.themeContainer}>
             <Text style={[styles.themeText, { color: theme.textPrimart }]}>{languageValues.setDarkMode}</Text>
@@ -88,7 +94,6 @@ export const SettingsScreen = () => {
             <TextInput
                 style={modalLanguageStyle.selectLangButtonContainer}
                 editable={false}
-                placeholder="Select something yummy!"
                 value={languages.find((lang) => lang.key == languageCode)?.label} />
         </ModalSelector>
 

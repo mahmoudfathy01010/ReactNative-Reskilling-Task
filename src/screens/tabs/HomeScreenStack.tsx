@@ -7,7 +7,7 @@ import { useAppLang, useAppTheme } from "../../hooks";
 const HomeStack = createNativeStackNavigator();
 
 export const HomeStackScreen = () => {
-    const theme = useAppTheme();
+    const {theme} = useAppTheme();
     const {languageValues} = useAppLang();
     return (
         <HomeStack.Navigator>
