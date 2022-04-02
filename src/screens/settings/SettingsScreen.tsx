@@ -1,4 +1,4 @@
-import { Text, View, Switch, TextInput, } from "react-native"
+import { Text, View, Switch, TextInput, StyleSheet, } from "react-native"
 import React, { useState } from "react"
 import { useAppDispatch, useAppLang, useAppTheme } from "../../hooks";
 import { setTheme } from "../../store/redux/theme.slice";
@@ -22,6 +22,38 @@ export const SettingsScreen = () => {
         setIsEnabled(previousState => !previousState);
     }
 
+    const modalLanguageStyle = StyleSheet.create({
+        languagesContainer: {
+            backgroundColor: theme.primary,
+        },
+        languagesHeaderText: {
+            color: theme.textPrimart,
+            fontWeight: '700'
+        },
+        languagesItemText: {
+            color: theme.textPrimart,
+        },
+        languagesCancelText: {
+            color: theme.accent,
+        },
+        languagesSelectedItemText: {
+            color: theme.accent,
+            fontWeight:'bold'
+        },
+        selectLangButton: {
+            fontSize: 20,
+            color: theme.textPrimart
+        },
+        selectLangButtonContainer: {
+            marginTop: 20,
+            color: theme.textPrimart,
+            borderColor: theme.textPrimart,
+            borderWidth: 1,
+            padding: 10,
+            borderRadius: 20
+        },
+    })
+
     return <View style={[styles.mainContainer, { backgroundColor: theme.primary }]}>
         <View style={styles.themeContainer}>
             <Text style={[styles.themeText, { color: theme.textPrimart }]}>{languageValues.setDarkMode}</Text>
@@ -36,13 +68,13 @@ export const SettingsScreen = () => {
         </View>
 
         <ModalSelector
-            optionContainerStyle={styles.languagesContainer}
-            cancelStyle={styles.languagesContainer}
-            cancelTextStyle={styles.languagesCancelText}
-            optionTextStyle={styles.languagesItemText}
-            sectionTextStyle={styles.languagesHeaderText}
+            optionContainerStyle={modalLanguageStyle.languagesContainer}
+            cancelStyle={modalLanguageStyle.languagesContainer}
+            cancelTextStyle={modalLanguageStyle.languagesCancelText}
+            optionTextStyle={modalLanguageStyle.languagesItemText}
+            sectionTextStyle={modalLanguageStyle.languagesHeaderText}
             selectedKey={languageCode}
-            selectedItemTextStyle={styles.languagesSelectedItemText}
+            selectedItemTextStyle={modalLanguageStyle.languagesSelectedItemText}
             data={languages}
             onModalClose={(option) => {
                 if (option.key == 1) {
@@ -54,7 +86,7 @@ export const SettingsScreen = () => {
             }}
         >
             <TextInput
-                style={styles.selectLangButtonContainer}
+                style={modalLanguageStyle.selectLangButtonContainer}
                 editable={false}
                 placeholder="Select something yummy!"
                 value={languages.find((lang) => lang.key == languageCode)?.label} />

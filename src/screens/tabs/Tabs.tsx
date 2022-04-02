@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { NavigationContainer } from "@react-navigation/native";
-import { HomeScreen } from "../homeScreen/HomeScreen";
 import { SettingsScreen } from "../settings/SettingsScreen";
 import { StyleSheet, View } from "react-native"
 import { colors } from "../../utils/theme";
