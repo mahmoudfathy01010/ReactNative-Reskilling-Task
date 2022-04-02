@@ -14,10 +14,11 @@ export const SettingsScreen = () => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => {
         if (isEnabled) {
-            dispatch(setTheme("light"))
+            dispatch(setTheme("dark"))
         }
         else {
-            dispatch(setTheme("dark"))
+            dispatch(setTheme("light"))
+
         }
         setIsEnabled(previousState => !previousState);
     }
@@ -38,7 +39,7 @@ export const SettingsScreen = () => {
         },
         languagesSelectedItemText: {
             color: theme.accent,
-            fontWeight:'bold'
+            fontWeight: 'bold'
         },
         selectLangButton: {
             fontSize: 20,
@@ -59,8 +60,8 @@ export const SettingsScreen = () => {
             <Text style={[styles.themeText, { color: theme.textPrimart }]}>{languageValues.setDarkMode}</Text>
 
             <Switch
-                trackColor={{ false: theme.textSecondary, true: theme.secondary }}
-                thumbColor={isEnabled ? theme.textPrimart : theme.textPrimart}
+                trackColor={{ false: theme.textSecondary, true: theme.textSecondary }}
+                thumbColor={isEnabled ? theme.textPrimart : theme.primary}
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={toggleSwitch}
                 value={isEnabled}

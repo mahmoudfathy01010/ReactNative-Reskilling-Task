@@ -37,7 +37,8 @@ export const HomeStackScreen = () => {
                         color: theme.textPrimart
                     },
                     headerTintColor: theme.textPrimart,
-                    headerTitle:languageValues.details
+                    headerTitle:languageValues.details,
+                    headerBackTitle: languageValues.back
                 }
             } name="ArticleDetails" component={ArticleDetailsScreen} />
         </HomeStack.Navigator>
