@@ -7,7 +7,7 @@ import   Moment  from "moment";
 
 export const ArticleDetailsScreen = () => {
     const theme = useAppTheme();
-    const lang = useAppLang();
+    const {languageValues} = useAppLang();
     const article = useAppSelector((state) => state.articleReducer.article);
     Moment.locale('en');
     let articleTitle = article.title;
@@ -32,15 +32,15 @@ export const ArticleDetailsScreen = () => {
         <View style={styles.infoContainer}>
             <Text style={[styles.titleText,{color:theme.textPrimart}]}>{articleTitle}</Text>
             <View style={styles.metaContainer}>
-            <Text style={[styles.autherText,{color:theme.accent}]}>{ lang.by+": "+article.source.name}</Text>
-            <Text style={[styles.dateText,{color:theme.textSecondary}]}>{lang.date+": "+ Moment(article.publishedAt).format('MMMM Do YYYY') }</Text>
+            <Text style={[styles.autherText,{color:theme.accent}]}>{ languageValues.by+": "+article.source.name}</Text>
+            <Text style={[styles.dateText,{color:theme.textSecondary}]}>{languageValues.date+": "+ Moment(article.publishedAt).format('MMMM Do YYYY') }</Text>
             </View>
             <View style={styles.descriptionContainer}>
-                <Text style={[styles.headerStyle,{color:theme.textSecondary}]}>{lang.description}</Text>
+                <Text style={[styles.headerStyle,{color:theme.textSecondary}]}>{languageValues.description}</Text>
                 <Text style={[styles.descriptionText,{color:theme.textSecondary}]}>{articleDesciption}</Text>
             </View>
             <View style={styles.contentContainer}>
-                <Text style={[styles.headerStyle,{color:theme.textPrimart}]}>{lang.content+":"}</Text>
+                <Text style={[styles.headerStyle,{color:theme.textPrimart}]}>{languageValues.content+":"}</Text>
                 <Text style={[styles.contentText,{color:theme.textSecondary}]}>{articleContent}</Text>
             </View>
         </View>
