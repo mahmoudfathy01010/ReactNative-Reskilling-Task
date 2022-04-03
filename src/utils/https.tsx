@@ -7,7 +7,7 @@ const search = "/search/movie"
 const movie = "/movie"
 const API_KEY = "5dd85a7606bbd9d15e62b9cfb6fe2fa6";
 
-export const fetchArticles = async (query: string) => {
+export const fetchMovies = async (query: string) => {
     if (query.length > 0) {
         console.log(query + "everything")
         return await axios.get(BASE_URL + search, { params: { query: query, api_key: API_KEY } })

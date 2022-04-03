@@ -1,20 +1,20 @@
 import { FlatList, RefreshControl, View } from "react-native"
 import React, { useCallback, useState } from "react"
-import { Movie } from "../../../../store/model/article"
-import { ArticleItem } from "../articleItem/ArticleItem"
+import { Movie } from "../../../../store/model/movie"
+import { MovieItem } from "../movieItem/MovieItem"
 import { styles } from "./style"
 import { useAppDispatch } from "../../../../hooks"
-import { thunkGetArticles } from "../../../../store/redux/news-actions"
+import { thunkGetMovies } from "../../../../store/redux/news-actions"
 interface Props {
-    articles: Movie[],
+    movies: Movie[],
     searchText: string
 }
-export const HomeList: React.FC<Props> = ({ articles,searchText }) => {
+export const HomeList: React.FC<Props> = ({ movies,searchText }) => {
     const [refreshing, setRefreshing] = useState(false);
     const dispatch = useAppDispatch();
 
     const onRefresh = useCallback(() => {
-        dispatch(thunkGetArticles(searchText, true));
+        dispatch(thunkGetMovies(searchText, true));
         setRefreshing(true);
         const indentifier = setTimeout(() => {
             setRefreshing(false);
@@ -30,9 +30,9 @@ export const HomeList: React.FC<Props> = ({ articles,searchText }) => {
                 refreshing={refreshing}
                 onRefresh={onRefresh}
             ></RefreshControl>}
-            data={articles}
-            renderItem={({ item }) => (<ArticleItem article={item}>
-            </ArticleItem>)}
+            data={movies}
+            renderItem={({ item }) => (<MovieItem movie={item}>
+            </MovieItem>)}
             keyExtractor={item => item.id} ></FlatList>
     </View>
 }

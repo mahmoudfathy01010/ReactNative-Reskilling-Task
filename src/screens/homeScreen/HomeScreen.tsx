@@ -1,20 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, Button, ActivityIndicator, TextInput } from 'react-native'
 import { useAppDispatch, useAppSelector, useAppTheme } from '../../hooks';
-import { thunkGetArticles } from '../../store/redux/news-actions';
+import { thunkGetMovies } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/list/List';
 import { styles } from './style';
 let isInitialized = false;
 export const HomeScreen: React.FC = ({ }) => {
     const {theme} = useAppTheme();
     const dispatch = useAppDispatch();
-    const articles = useAppSelector((state) => state.newsReducer.list);
+    const movies = useAppSelector((state) => state.newsReducer.list);
     const errorMsg = useAppSelector((state) => state.newsReducer.errorMsg);
     const isLoading = useAppSelector((state) => state.newsReducer.isLoading);
     const [searchText, setSearchText] = useState('');
 
     const getData = useCallback((searchInput) => {
-        dispatch(thunkGetArticles(searchInput));
+        dispatch(thunkGetMovies(searchInput));
     }, []);
 
     const onSearchTextChange = (text: string) => {
@@ -49,8 +49,8 @@ export const HomeScreen: React.FC = ({ }) => {
             </View>
         </View>
     }
-    else if (articles.length != 0) {
-        currentDisplay = <HomeList searchText={searchText} articles={articles}></HomeList>
+    else if (movies.length != 0) {
+        currentDisplay = <HomeList searchText={searchText} movies={movies}></HomeList>
     }
 
     else {

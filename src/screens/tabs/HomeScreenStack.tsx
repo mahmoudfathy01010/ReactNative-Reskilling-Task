@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { ArticleDetailsScreen } from "../articleDetailsScreen/ArticleDetailsScreen";
+import { MovieDetailsScreen } from "../movieDetailsScreen/MovieDetailsScreen";
 import { HomeScreen } from "../homeScreen/HomeScreen";
 import React from "react";
 import { useAppLang, useAppTheme } from "../../hooks";
@@ -40,7 +40,7 @@ export const HomeStackScreen = () => {
                     headerTitle:languageValues.details,
                     headerBackTitle: languageValues.back
                 }
-            } name="ArticleDetails" component={ArticleDetailsScreen} />
+            } name="MovieDetails" component={MovieDetailsScreen} />
         </HomeStack.Navigator>
     );
 }

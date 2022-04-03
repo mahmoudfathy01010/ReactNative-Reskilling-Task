@@ -18,7 +18,7 @@ export type RootStackParamList = {
 
 export type TabsParamList = {
   Home: undefined
-  ArticleDetails: {id: string}
+  MovieDetails: {id: string}
 }
 
 const App = () => {

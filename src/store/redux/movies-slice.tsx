@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Movie } from "../model/article";
-import { RootState } from "./store";
-interface NewsState {
+import { Movie } from "../model/movie";
+interface MoviesState {
     list: Movie[],
     errorMsg: string,
     isLoading: boolean,
 }
-const initialNewsState: NewsState = { list: [], errorMsg: "", isLoading: false }
+const initialMoviesState: MoviesState = { list: [], errorMsg: "", isLoading: false }
 const newsSlice = createSlice({
     name: 'news',
-    initialState: initialNewsState,
+    initialState: initialMoviesState,
     reducers: {
-        getNewsArticles: (state, action) => {
+        getNewsMovies: (state, action) => {
             state.list = action.payload;
             state.errorMsg = "";
             state.isLoading = false;
@@ -26,5 +25,5 @@ const newsSlice = createSlice({
     }
 })
 
-export const { getNewsArticles, setError, setIsLoading } = newsSlice.actions;
+export const { getNewsMovies, setError, setIsLoading } = newsSlice.actions;
 export const newsReducer = newsSlice.reducer;

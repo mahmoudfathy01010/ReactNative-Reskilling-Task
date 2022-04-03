@@ -17,7 +17,7 @@ export const Tabs = () => {
     screens: {
       HomeScreenStack: {
         screens: {
-          ArticleDetails: {
+          MovieDetails: {
             path: "details/:id",
             parse:{
               id:(id:string)=> ''+id

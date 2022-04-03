@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Movie } from "../model/article";
+import { Movie } from "../model/movie";
 interface MovieState {
     movie: Movie,
     errorMsg: string,

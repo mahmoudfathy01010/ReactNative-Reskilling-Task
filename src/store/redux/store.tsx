@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { newsReducer } from "./news-slice"
+import { newsReducer } from "./movies-slice"
 import { movieReducer } from "./movie-slice"
 import { themeReducer } from "./theme.slice"
 import { langReducer } from "./lang-slice"

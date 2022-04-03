@@ -1,36 +1,36 @@
 import { AnyAction } from 'redux'
 import { RootState } from './store'
 import { ThunkAction } from 'redux-thunk'
-import { fetchArticles, fetchMovieById, validateStatus } from '../../utils/https'
-import { getNewsArticles, setError, setIsLoading } from './news-slice'
-import { Movie } from '../model/article'
+import { fetchMovies, fetchMovieById, validateStatus } from '../../utils/https'
+import { getNewsMovies, setError, setIsLoading } from './movies-slice'
+import { Movie } from '../model/movie'
 import { getMovie, setMovieDetailsError, setMovieDetailsLoading } from './movie-slice'
 
-export const thunkGetArticles =
+export const thunkGetMovies =
     (query: string, isRefreshing = false): ThunkAction<void, RootState, unknown, AnyAction> =>
         async dispatch => {
             const getData = async (): Promise<Movie[]> => {
                 if (!isRefreshing) {
                     dispatch(setIsLoading(true));
                 }
-                const response = await fetchArticles(query);
+                const response = await fetchMovies(query);
                 if (!validateStatus(response.status)) {
-                    throw new Error('Sorry, Could not fetch articles data!');
+                    throw new Error('Sorry, Could not fetch movies data!');
                 }
                 else {
-                    let articles: Movie[] = response.data.results;
+                    let movies: Movie[] = response.data.results;
                     console.log("data" +response.status)
-                    return articles;
+                    return movies;
                 }
             }
             try {
-                let articles: Movie[] = await getData();
-                dispatch(getNewsArticles(articles));
+                let movies: Movie[] = await getData();
+                dispatch(getNewsMovies(movies));
 
             }
             catch (err) {
                 console.log(err);
-                dispatch(setError('Sorry, Could not fetch articles data!'));
+                dispatch(setError('Sorry, Could not fetch movies data!'));
             }
 
         }
@@ -42,7 +42,7 @@ export const thunkGetMovieById =
                     dispatch(setMovieDetailsLoading(true));
                 const response = await fetchMovieById(id);
                 if (!validateStatus(response.status)) {
-                    throw new Error('Sorry, Could not fetch articles data!');
+                    throw new Error('Sorry, Could not fetch movie details!');
                 }
                 else {
                     let movie: Movie = response.data;
@@ -55,7 +55,7 @@ export const thunkGetMovieById =
             }
             catch (err) {
                 console.log(err);
-                dispatch(setMovieDetailsError('Sorry, Could not fetch articles data!'));
+                dispatch(setMovieDetailsError('Sorry, Could not fetch movie details!'));
             }
 
         }
