@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { sliceReducer } from "./news-slice"
-import { articleReducer } from "./article-slice"
+import { newsReducer } from "./news-slice"
+import { movieReducer } from "./movie-slice"
 import { themeReducer } from "./theme.slice"
 import { langReducer } from "./lang-slice"
 export const store = configureStore({
     reducer:{
-        sliceReducer,
-        articleReducer,
+        newsReducer,
+        movieReducer,
         themeReducer,
         langReducer
     }

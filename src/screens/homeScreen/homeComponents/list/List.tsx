@@ -33,6 +33,6 @@ export const HomeList: React.FC<Props> = ({ articles,searchText }) => {
             data={articles}
             renderItem={({ item }) => (<ArticleItem article={item}>
             </ArticleItem>)}
-            keyExtractor={item => item.title} ></FlatList>
+            keyExtractor={item => item.id} ></FlatList>
     </View>
 }

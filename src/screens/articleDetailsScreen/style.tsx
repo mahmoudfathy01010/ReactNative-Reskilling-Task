@@ -45,4 +45,26 @@ export const styles = StyleSheet.create({
         marginTop: 6,
         fontSize: 12,
     },
+    loadingContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    errorContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    errorText: {
+    },
+    errorButtonContainer: {
+        marginTop: 10,
+        width: 100,
+        alignItems: "center",
+    },
+    noDataContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
 })

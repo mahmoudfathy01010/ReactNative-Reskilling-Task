@@ -8,9 +8,9 @@ let isInitialized = false;
 export const HomeScreen: React.FC = ({ }) => {
     const {theme} = useAppTheme();
     const dispatch = useAppDispatch();
-    const articles = useAppSelector((state) => state.sliceReducer.list);
-    const errorMsg = useAppSelector((state) => state.sliceReducer.errorMsg);
-    const isLoading = useAppSelector((state) => state.sliceReducer.isLoading);
+    const articles = useAppSelector((state) => state.newsReducer.list);
+    const errorMsg = useAppSelector((state) => state.newsReducer.errorMsg);
+    const isLoading = useAppSelector((state) => state.newsReducer.isLoading);
     const [searchText, setSearchText] = useState('');
 
     const getData = useCallback((searchInput) => {

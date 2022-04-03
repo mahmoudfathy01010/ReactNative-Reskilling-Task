@@ -20,7 +20,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
     const navigation = useNavigation<NativeStackNavigationProp<TabsParamList>>();
     const onItemPress =()=>{
         dispatch(setArticle(article));
-        navigation.navigate("ArticleDetails",{id:article.title});
+        navigation.navigate("ArticleDetails",{id:article.id});
     }
     let articleTitle = article.title;
     let articleDesciption = article.overview;
