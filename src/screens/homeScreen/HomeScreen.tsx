@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, Button, ActivityIndicator, TextInput } from 'react-native'
-import { useAppDispatch, useAppSelector, useAppTheme } from '../../hooks';
+import { useAppDispatch, useAppLang, useAppSelector, useAppTheme } from '../../hooks';
 import { thunkGetMovies } from '../../store/redux/news-actions';
 import { HomeList } from './homeComponents/list/List';
 import { styles } from './style';
@@ -12,6 +12,7 @@ export const HomeScreen: React.FC = ({ }) => {
     const errorMsg = useAppSelector((state) => state.newsReducer.errorMsg);
     const isLoading = useAppSelector((state) => state.newsReducer.isLoading);
     const [searchText, setSearchText] = useState('');
+    const {languageValues} = useAppLang();
 
     const getData = useCallback((searchInput) => {
         dispatch(thunkGetMovies(searchInput));
@@ -43,9 +44,9 @@ export const HomeScreen: React.FC = ({ }) => {
     }
     else if (errorMsg != '') {
         currentDisplay = <View style={styles.errorContainer}>
-            <Text style={styles.errorText}>{errorMsg}</Text>
+            <Text style={[styles.errorText,{color:theme.textPrimary}]}>{languageValues.homeErrorMessage}</Text>
             <View style={styles.errorButtonContainer}>
-                <Button onPress={getData}  title='Try again'></Button>
+                <Button onPress={getData}  title={languageValues.tryAgain} color={theme.accent}></Button>
             </View>
         </View>
     }
@@ -54,7 +55,7 @@ export const HomeScreen: React.FC = ({ }) => {
     }
 
     else {
-        currentDisplay = <View style={styles.noDataContainer}><Text style={styles.noDataText}>Sorry, there is no data</Text></View>
+        currentDisplay = <View style={styles.noDataContainer}><Text style={styles.noDataText}>{languageValues.noDataMessage}</Text></View>
     }
 
 
@@ -62,9 +63,7 @@ export const HomeScreen: React.FC = ({ }) => {
         <TextInput
             value={searchText}
             onChangeText={onSearchTextChange}
-            style={[styles.searchInput,{color: theme.textPrimart, borderColor: theme.textSecondary}]} selectionColor={theme.textSecondary}></TextInput>
+            style={[styles.searchInput,{color: theme.textPrimary, borderColor: theme.textSecondary}]} selectionColor={theme.textSecondary}></TextInput>
         {currentDisplay}
     </View>
 }
-
-export const HOME_SCREEN_TAG = "Home";

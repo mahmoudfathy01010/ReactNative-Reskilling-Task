@@ -6,7 +6,7 @@ const initialThemeeState = {
     theme: {
         primary: colors.white,
         secondary: colors.white70,
-        textPrimart: colors.primaryColor,
+        textPrimary: colors.primaryColor,
         textSecondary: colors.secondaryColor,
         accent: colors.accentColor
     },
@@ -21,7 +21,7 @@ const themeSlice = createSlice({
                 state.theme = {
                     primary: colors.white,
                     secondary: colors.white70,
-                    textPrimart: colors.primaryColor,
+                    textPrimary: colors.primaryColor,
                     textSecondary: colors.secondaryColor,
                     accent: colors.accentColor
                 }
@@ -31,7 +31,7 @@ const themeSlice = createSlice({
                 state.theme = {
                     primary: colors.primaryColor,
                     secondary: colors.secondaryColor,
-                    textPrimart: colors.white,
+                    textPrimary: colors.white,
                     textSecondary: colors.white70,
                     accent: colors.accentColor
                 },

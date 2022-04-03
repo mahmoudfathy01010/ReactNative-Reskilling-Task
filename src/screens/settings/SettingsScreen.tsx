@@ -33,11 +33,11 @@ export const SettingsScreen = () => {
             backgroundColor: theme.primary,
         },
         languagesHeaderText: {
-            color: theme.textPrimart,
+            color: theme.textPrimary,
             fontWeight: '700'
         },
         languagesItemText: {
-            color: theme.textPrimart,
+            color: theme.textPrimary,
         },
         languagesCancelText: {
             color: theme.accent,
@@ -48,12 +48,12 @@ export const SettingsScreen = () => {
         },
         selectLangButton: {
             fontSize: 20,
-            color: theme.textPrimart
+            color: theme.textPrimary
         },
         selectLangButtonContainer: {
             marginTop: 20,
-            color: theme.textPrimart,
-            borderColor: theme.textPrimart,
+            color: theme.textPrimary,
+            borderColor: theme.textPrimary,
             borderWidth: 1,
             padding: 10,
             borderRadius: 20
@@ -61,11 +61,11 @@ export const SettingsScreen = () => {
     })
     return <View style={[styles.mainContainer, { backgroundColor: theme.primary }]}>
         <View style={styles.themeContainer}>
-            <Text style={[styles.themeText, { color: theme.textPrimart }]}>{languageValues.setDarkMode}</Text>
+            <Text style={[styles.themeText, { color: theme.textPrimary }]}>{languageValues.setDarkMode}</Text>
 
             <Switch
                 trackColor={{ false: theme.textSecondary, true: theme.secondary }}
-                thumbColor={isEnabled ? theme.textPrimart : theme.primary}
+                thumbColor={isEnabled ? theme.textPrimary : theme.primary}
                 ios_backgroundColor={isEnabled ? theme.textSecondary : theme.textSecondary}
                 onValueChange={toggleSwitch}
                 value={isEnabled}

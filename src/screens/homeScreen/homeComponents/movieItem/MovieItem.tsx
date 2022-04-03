@@ -7,7 +7,6 @@ import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { TabsParamList } from "../../../../../App"
 import { useAppTheme } from "../../../../hooks"
-import { IMAGE_BASE_URL } from "../../../../utils/https"
 
 interface Props {
     movie: Movie
@@ -18,22 +17,16 @@ export const MovieItem: React.FC<Props> = ({ movie }) => {
     const onItemPress =()=>{
         navigation.navigate("MovieDetails",{id:movie.id});
     }
-    let movieTitle = movie.title;
-    let movieDesciption = movie.overview;
-    if(movie.title === "" || movie.title === null){
-        movieTitle = "Soryy, There is no title Data"
-    }
-    if(movie.overview === "" || movie.overview === null){
-        movieDesciption = "Sorry, There is no Description Data"
-    }
+
+
     return <Pressable onPress={onItemPress}>
         <View style={[styles.mainContainer, {backgroundColor: theme.secondary}]}>
             <View style={styles.imageContainer}>
-                <ImagWithPlaceHolder imageUrl={IMAGE_BASE_URL+ movie.poster_path} style={styles.image}></ImagWithPlaceHolder>
+                <ImagWithPlaceHolder imageUrl={ movie.poster_path} style={styles.image}></ImagWithPlaceHolder>
             </View>
             <View style={styles.infoContainer}>
-                <Text style={[styles.titleText,{color:theme.textSecondary}]} numberOfLines={1}>{movieTitle}</Text>
-                <Text style={[styles.descriptionText,{color:theme.textPrimart}]} numberOfLines={4}>{movieDesciption}</Text>
+                <Text style={[styles.titleText,{color:theme.textSecondary}]} numberOfLines={1}>{movie.title}</Text>
+                <Text style={[styles.descriptionText,{color:theme.textPrimary}]} numberOfLines={4}>{movie.overview}</Text>
             </View>
         </View>
     </Pressable>

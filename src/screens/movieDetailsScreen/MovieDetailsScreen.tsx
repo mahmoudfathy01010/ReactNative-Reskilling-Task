@@ -6,7 +6,6 @@ import { ImagWithPlaceHolder } from "../../components/placeHolderImage/PlaceHold
 import Moment from "moment";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { TabsParamList } from "../../../App";
-import { IMAGE_BASE_URL } from "../../utils/https";
 import { useDispatch } from "react-redux";
 import { thunkGetMovieById } from "../../store/redux/news-actions";
 
@@ -36,9 +35,9 @@ export const MovieDetailsScreen = ({ }) => {
     }
     else if (errorMsg != '') {
         currentDisplay = <View style={styles.errorContainer}>
-            <Text style={styles.errorText}>{errorMsg}</Text>
+            <Text style={[styles.errorText,{color:theme.textPrimary}]}>{languageValues.detailsErrorMessage}</Text>
             <View style={styles.errorButtonContainer}>
-                <Button onPress={getData} title='Try again'></Button>
+                <Button onPress={getData} title={languageValues.tryAgain} color={theme.accent}></Button>
             </View>
         </View>
     }
@@ -46,10 +45,10 @@ export const MovieDetailsScreen = ({ }) => {
     else if (movie != null) {
         currentDisplay = <ScrollView>
             <View style={styles.imageContainer}>
-                <ImagWithPlaceHolder imageUrl={IMAGE_BASE_URL + movie.poster_path} style={styles.image}></ImagWithPlaceHolder>
+                <ImagWithPlaceHolder imageUrl={movie.poster_path} style={styles.image}></ImagWithPlaceHolder>
             </View>
             <View style={styles.infoContainer}>
-                <Text style={[styles.titleText, { color: theme.textPrimart }]}>{movie.title}</Text>
+                <Text style={[styles.titleText, { color: theme.textPrimary }]}>{movie.title}</Text>
                 <View style={styles.metaContainer}>
                     <Text style={[styles.autherText, { color: theme.accent }]}>{languageValues.language + ": " + movie.original_language}</Text>
                     <Text style={[styles.dateText, { color: theme.textSecondary }]}>{languageValues.date + ": " + Moment(movie.release_date).format('MMMM Do YYYY')}</Text>
@@ -63,7 +62,7 @@ export const MovieDetailsScreen = ({ }) => {
     }
 
     else {
-        currentDisplay = <View style={styles.noDataContainer}><Text >Sorry, there is no data</Text></View>
+        currentDisplay = <View style={styles.noDataContainer}><Text >{languageValues.detailsErrorMessage}</Text></View>
     }
 
     return <View style={[styles.mainContainer, { backgroundColor: theme.primary }]}>

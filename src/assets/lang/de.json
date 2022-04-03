@@ -8,6 +8,10 @@
     "setDarkMode":"Dunkelmodus einstellen",
     "details": "Einzelheiten",
     "back": "zurück",
-    "news": "Nachrichten"
+    "news": "Nachrichten",
+    "detailsErrorMessage": "Tut mir leid, Filmdetaildaten konnten nicht abgerufen werden",
+    "homeErrorMessage": "Tut mir leid, Filmdaten konnten nicht abgerufen werden",
+    "tryAgain": "Versuchen Sie es nochmal",
+    "noDataMessage": "Entschuldigung, es gibt keine Daten für Ihre Suche, versuchen Sie es mit einem anderen Begriff"
 
 }

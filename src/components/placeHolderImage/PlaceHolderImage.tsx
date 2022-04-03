@@ -1,5 +1,6 @@
 import { Image, ImageStyle, StyleProp } from "react-native"
 import React, { useState } from "react"
+import { IMAGE_BASE_URL } from "../../utils/https";
 interface Props {
     imageUrl: string,
     style: StyleProp<ImageStyle> | undefined
@@ -11,7 +12,7 @@ export const ImagWithPlaceHolder: React.FC<Props> = ({ imageUrl, style }) => {
     }
     let sourcImage;
     if (isLoaded && imageUrl != null) {
-        sourcImage = { uri: imageUrl }
+        sourcImage = { uri: IMAGE_BASE_URL+ imageUrl }
     }
     else {
         sourcImage = require('../../assets/placeholder.jpeg');

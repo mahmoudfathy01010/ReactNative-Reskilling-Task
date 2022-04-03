@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import { SettingsScreen } from "../settings/SettingsScreen";
-import { StyleSheet, View } from "react-native"
+import { StyleSheet } from "react-native"
 import { colors } from "../../utils/theme";
 import { useAppLang, useAppSelector } from "../../hooks";
 import React from "react";
@@ -42,7 +42,7 @@ export const Tabs = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({focused}) => {
-          const color = focused? colors.accentColor : theme.textPrimart;
+          const color = focused? colors.accentColor : theme.textPrimary;
           if(route.name == "HomeScreenStack")
           {
           return <Ionicons name="home-outline" size={30} color={color}/>;
@@ -52,7 +52,7 @@ export const Tabs = () => {
           }
         },
         tabBarActiveTintColor: theme.accent,
-        tabBarInactiveTintColor: theme.textPrimart,
+        tabBarInactiveTintColor: theme.textPrimary,
         tabBarStyle: {
           backgroundColor: theme.primary,
         },
@@ -70,7 +70,7 @@ export const Tabs = () => {
             backgroundColor: theme.primary,
           },
           headerTitleStyle: {
-            color: theme.textPrimart
+            color: theme.textPrimary
           },
           headerTitle: languageValues.settings
         }

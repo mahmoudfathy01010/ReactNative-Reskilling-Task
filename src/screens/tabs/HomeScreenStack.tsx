@@ -18,7 +18,7 @@ export const HomeStackScreen = () => {
                             backgroundColor: theme.primary,
                         },
                         headerTitleStyle: {
-                            color: theme.textPrimart
+                            color: theme.textPrimary
                         }
                         ,
                         headerTitle:languageValues.home,
@@ -34,9 +34,9 @@ export const HomeStackScreen = () => {
                         backgroundColor: theme.primary,
                     },
                     headerTitleStyle: {
-                        color: theme.textPrimart
+                        color: theme.textPrimary
                     },
-                    headerTintColor: theme.textPrimart,
+                    headerTintColor: theme.textPrimary,
                     headerTitle:languageValues.details,
                     headerBackTitle: languageValues.back
                 }

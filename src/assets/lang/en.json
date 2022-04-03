@@ -8,5 +8,10 @@
     "setDarkMode": "Set dark mode",
     "details": "Details",
     "back": "Back",
-    "news": "News"
+    "news": "News",
+    "detailsErrorMessage": "Sorry, Could not get movies details data",
+    "homeErrorMessage": "Sorry, Could not get movies data",
+    "tryAgain": "Try Again",
+    "noDataMessage": "Sorry there is no data for your search, Try another term"
+
 }
