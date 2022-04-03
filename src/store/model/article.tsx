@@ -1,27 +1,18 @@
-export class Article {
+export class Movie {
+    id:string
     title: string;
-    urlToImage: string;
-    publishedAt: string;
-    description: string;
-    content: string;
-    source: Source;
+    poster_path: string;
+    overview: string;
+    release_date:string;
+    original_language:string
 
-    constructor(title: string, urlToImage: string, publishedAt: string, description: string, content: string, source: Source) {
+    constructor(title: string, id: string, poster_path: string, overview: string, release_date:string,original_language:string) {
         this.title = title;
-        this.urlToImage = urlToImage;
-        this.publishedAt = publishedAt;
-        this.description = description;
-        this.content = content;
-        this.source = source;
-    }
-}
-
-class Source {
-    id: string;
-    name: string;
-
-    constructor(id: string, name: string) {
         this.id = id;
-        this.name = name
+        this.poster_path = poster_path;
+        this.overview = overview;
+        this.release_date = release_date;
+        this.original_language = original_language;
     }
 }
+

@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Article } from "../model/article";
+import { Movie } from "../model/article";
 import { RootState } from "./store";
 interface NewsState {
-    list: Article[],
+    list: Movie[],
     errorMsg: string,
     isLoading: boolean,
 }

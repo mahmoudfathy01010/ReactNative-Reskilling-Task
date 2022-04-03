@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Article } from "../model/article";
+import { Movie } from "../model/article";
 import { RootState } from "./store";
 interface ArticleState {
-    article: Article,
+    article: Movie,
 }
 const initialArticleState: ArticleState = { article: null as any}
 const articleSlice = createSlice({

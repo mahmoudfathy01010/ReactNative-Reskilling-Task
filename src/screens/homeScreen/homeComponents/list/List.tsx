@@ -1,12 +1,12 @@
 import { FlatList, RefreshControl, View } from "react-native"
 import React, { useCallback, useState } from "react"
-import { Article } from "../../../../store/model/article"
+import { Movie } from "../../../../store/model/article"
 import { ArticleItem } from "../articleItem/ArticleItem"
 import { styles } from "./style"
 import { useAppDispatch } from "../../../../hooks"
 import { thunkGetArticles } from "../../../../store/redux/news-actions"
 interface Props {
-    articles: Article[],
+    articles: Movie[],
     searchText: string
 }
 export const HomeList: React.FC<Props> = ({ articles,searchText }) => {

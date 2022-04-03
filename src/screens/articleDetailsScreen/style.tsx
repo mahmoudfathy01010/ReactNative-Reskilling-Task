@@ -25,11 +25,6 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '300',
     },
-    contentText: {
-        marginTop: 6,
-        fontSize: 16,
-        fontWeight: '300',
-    },
     headerStyle: {
         marginTop: 6,
         fontSize: 16,
@@ -37,9 +32,6 @@ export const styles = StyleSheet.create({
     },
     descriptionContainer: {
         marginTop: 10,
-    },
-    contentContainer: {
-        marginTop: 10
     },
     autherText: {
         marginTop: 6,
