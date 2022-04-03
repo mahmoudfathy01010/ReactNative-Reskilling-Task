@@ -7,7 +7,7 @@ import { useAppLang, useAppSelector } from "../../hooks";
 import React from "react";
 import { HomeStackScreen } from "./HomeScreenStack";
 import { RootStackParamList } from "../../../App";
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 const Tab = createBottomTabNavigator();
@@ -41,8 +41,15 @@ export const Tabs = () => {
   return <NavigationContainer linking={linking}>
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: () => {
-          return <View style={styles.icon}></View>;
+        tabBarIcon: ({focused}) => {
+          const color = focused? colors.accentColor : theme.textPrimart;
+          if(route.name == "HomeScreenStack")
+          {
+          return <Ionicons name="home-outline" size={30} color={color}/>;
+          }
+          else if(route.name == "Settings"){
+            return <Ionicons name="settings-outline" size={30} color={color} />;
+          }
         },
         tabBarActiveTintColor: theme.accent,
         tabBarInactiveTintColor: theme.textPrimart,
